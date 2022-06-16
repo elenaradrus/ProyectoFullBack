@@ -4,6 +4,7 @@ const UserModel = require("../models/userModels");
 const connection = require("../database/sqlDataBase")
 const mysql = require("mysql")
 
+
 const user = {
   saveDataForm: (req, res) => {
     nombre = req.body.name;
@@ -29,7 +30,7 @@ const user = {
       !telfExp.test(telefono)
     ) {
       console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
-      res.send(nombre);
+      
     } else {
       let insertQuery = `INSERT INTO Usuarios
       (
@@ -41,51 +42,84 @@ const user = {
       )`;
 
 
-let query = mysql.format(insertQuery, [nombre, apellidos, dni, email, telefono, contrasena] );
-         console.log(query)
+      let query = mysql.format(insertQuery, [nombre, apellidos, dni, email, telefono, contrasena]);
+      console.log(query)
       connection.query(query, (err, data) => {
-        if(err) throw err;
+        if (err) throw err;
         console.log(data);
-    }); 
+      });
       console.log("todo ok");
     }
 
-   
-    
+
+
 
     //regex
-    
+
 
     //condicion de comprobacion
-   
+
   },
   registerUser: (req, res) => {
     res.render("index");
   },
-  updateUser: (req,res) => {
+  updateUser: (req, res) => {
 
   },
-  login : (req, res) => {
-    loginName = req.body.userLog
+  login: (req, res) => {
+    loginEmail = req.body.email
     passLog = req.body.passLog
-
-    console.log("mas o menos");
-  }
-//'SELECT * FROM ?? WHERE ?? = ?';    
-
-
-
-  }
-  
-let nameCorrect = `SELECT * FROM Usuarios`;
     
-connection.query(nameCorrect, (err, rows) => {
-  if(err) throw err;
-  console.log('Usuario: \n', rows);
+    let nameCorrect = `SELECT * FROM Usuarios`;
+
+    connection.query(nameCorrect, (err, rows) => {
+      if(err) throw err;
+      console.log('Usuario: \n', rows);
+      //res.json(rows);
+      res.render("uCuber")
+      
+
+      //connection.end();
+    }
+    )
+  },
+  logHome: (req,res) => {
+    res.render("indexLog")
+  }
   
-  //connection.end();
+
+  //'SELECT * FROM ?? WHERE ?? = ?';    
+
 }
-)
+//   const login = {
+//    login: (req, res) => {
+//       loginEmail = req.body.email
+//       passLog = req.body.passLog
+
+//       console.log(loginEmail);
+//       console.log(passLog);
+//   }
+//     let nameCorrect = `SELECT * FROM Usuarios`;
+
+//     connection.query(nameCorrect, (err, rows) => {
+//       if(err) throw err;
+//       console.log('Usuario: \n', rows);
+
+//       //connection.end();
+//     }
+//     )
+
+//   }
+
+//   }
+// }
+
+
+
+//connection.end();
+
 
 // module.exports = user.login;
 module.exports = user;
+// module.exports = login;
+

@@ -48,6 +48,10 @@ body {
     color: #111111;
 }
 
+.nametext {
+    color: red;
+}
+
 .busqueda {
     color: #C3C3C3;
     position: relative;
