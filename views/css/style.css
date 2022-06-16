@@ -21,11 +21,31 @@ body {
     top: 0px;
     background: #FFFFFF;
     border-bottom: 1px solid rgba(102, 102, 102, 0.25);
+    z-index: 1;
+}
+
+.textNa {
+    display: flex;
 }
 
 .home {
     color: #C3C3C3;
     margin-left: 25px;
+}
+
+.home:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+
+.uCuber {
+    color: #C3C3C3;
+    margin-left: 25px;
+}
+
+.uCuber:hover {
+    /* background-color: #111111; */
+    color: #111111;
 }
 
 .busqueda {
@@ -714,11 +734,8 @@ body {
 }
 
 .logHTex {
-   
     font-family: 'Poppins', sans-serif;
-
     display: flex;
- 
     color: #333333;
     flex: none;
     order: 0;
@@ -726,18 +743,18 @@ body {
 }
 
 .logPText {
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
-font-size: 16px;
+    font-size: 16px;
 
-text-align: center;
-color: rgba(102, 102, 102, 0.8);
-flex: none;
-order: 1;
-flex-grow: 0;
+    text-align: center;
+    color: rgba(102, 102, 102, 0.8);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
-.inpBu{
+.inpBu {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -750,8 +767,8 @@ flex-grow: 0;
     flex-grow: 0;
     margin-top: -39px;
 }
+.userLog {
 
-.userLog{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     text-align: center;
@@ -769,7 +786,7 @@ flex-grow: 0;
     border-radius: 12px;
 }
 
-.passLog{
+.passLog {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     text-align: center;
@@ -787,7 +804,7 @@ flex-grow: 0;
     border-radius: 12px;
 }
 
-.botonLog{
+.botonLog {
     width: 342px;
     height: 56px;
     background: #111111;
@@ -803,6 +820,237 @@ flex-grow: 0;
 }
 
 
-
-
 /*TODO                    Final Log */
+
+
+
+/*TODO                    comienzo U CUBER */
+.boxUtotal {
+    position: absolute;
+    width: 1607px;
+    left: 0px;
+    top: 73px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+
+.uBox {
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 721px;
+    height: 1040px;
+    left: 0px;
+    top: -21px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    border-radius: 24px;
+}
+
+.uCuberH {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 166px;
+    gap: 40px;
+
+    position: absolute;
+    width: 534px;
+    height: 561px;
+    left: 122px;
+    top: 90px;
+
+}
+
+.cabeceraU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 0px;
+    width: 130px;
+    height: 78px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.cabeTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.pTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-top: -43px;
+}
+
+.nombreU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.lnameU {
+    margin-left: 112px;
+}
+
+.dniTelU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.telU {
+    margin-left: 129px;
+}
+
+.emailOU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 60px 0px;
+    gap: 28px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border-block-end: 1px solid #c4c4c4;
+}
+
+.botonU {
+    width: 322px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: 74px;
+}
+
+.rutasHistorialBox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 622px;
+    height: 358px;
+    left: -80px;
+    top: 554px;
+
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 37px;
+}
+
+.historialTexU{
+    margin-left: 26px;
+}
+
+.contHistoText{
+    box-sizing: border-box;
+    position: absolute;
+    width: 551px;
+    height: 113px;
+    left: 19px;
+    top: 63px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+
+
+.contFechaText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 0px 5px 29px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.salidLlegada{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.horas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.oraHS{
+    margin-left: 78px;
+}
+
+.precioHis{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 3px 8px 430px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    border: 0;
+    position: relative;
+    top: -30px;
+    flex-grow: 0;
+}
+
+
+#map{
+    position: relative;
+    /* top: 0px; */
+    left: 721px;
+    /* height: 1018px; */
+    width: 879px;
+    height: 1019px;
+    
+}
+/*TODO                    Final U CUBER */

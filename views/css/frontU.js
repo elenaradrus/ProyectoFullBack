@@ -1,4 +1,46 @@
-//Mapa1
+
+// google
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+
+    console.log('Id Profile: ' + profile.getId()); 
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); 
+  console.log('Id Token '+googleUser.getAuthResponse().id_token );
+  }
+
+
+  document.getElementById('botonU').addEventListener('click', () =>{
+    mostrar(maxBoxPedir)
+   
+})
+document.getElementById('botonpagarB').addEventListener('click', () =>{
+
+    btnGr(maxBoxPedir)
+})
+
+function mostrar(id) {
+    let test = document.getElementById('maxBoxPedir');
+    if (test.style.display == 'block') {
+        test.style.display = 'none';
+    } else {
+        test.style.display = 'block'
+    }
+}
+function btnGr(id) {
+    let test = document.getElementById('maxBoxPedir');
+    if (test.style.display == 'inline') {
+        test.style.display = 'block';
+    } else {
+        test.style.display = 'none'
+    }
+}
+
+
+
+
+  //Mapa1
   //TODO     Pintamos mapas
 const mapId = "map";                                       //* Id index del mapa
 const initialCoordinates = [41.38662, 2.16627];       //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
@@ -6,7 +48,7 @@ const map = L.map(mapId).setView(initialCoordinates, 13);   //* const Map = (Nos
 
 
 const MAPBOX_API =
-  "https://api.mapbox.com/styles/v1/%7Bid%7D/tiles/%7Bz%7D/%7Bx%7D/%7By%7D?access_token=%7BaccessToken%7D";
+  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
 
    // Este token será el que obtengamos en la web de Mapbox
 const ACCESS_TOKEN =
@@ -34,4 +76,6 @@ L.tileLayer(MAPBOX_API, {
         //* Añadir marcador de la ciudad solicitada en el div.
         L.marker(plazaMayorCoordinates).bindPopup(`${city} : lat:${cleanLat} long: ${cleanLon}`).addTo(map);
       });
-    }
+
+    }   
+
