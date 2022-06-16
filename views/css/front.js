@@ -1,3 +1,6 @@
+fetch('/login')
+    .then(res => res.json())
+    .then(json => console.log(json));
 
 document.getElementById('sing').addEventListener('click', () =>{
     mostrar(contenedorRegis)
@@ -11,6 +14,7 @@ document.getElementById('log').addEventListener('click', () =>{
     mostrar1(contLog)
     btnGr(contenedorRegis)
 })
+
 
 function mostrar(id) {
     let test = document.getElementById('contenedorRegis');
