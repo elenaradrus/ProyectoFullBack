@@ -1,14 +1,44 @@
 
-// google
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
 
-    console.log('Id Profile: ' + profile.getId()); 
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); 
-  console.log('Id Token '+googleUser.getAuthResponse().id_token );
-  }
+
+navigator.geolocation.getCurrentPosition(function(position){
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  var map = L.map('map').setView([41.390205, 2.154007], 13);
+mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Leaflet &copy; ' + mapLink + ', contribution', maxZoom: 18 }).addTo(map);
+
+var taxiIcon = L.icon({
+iconUrl: 'pngegg.png',
+iconSize: [70, 70]
+})
+
+var marker = L.marker([latitude, longitude], { icon: taxiIcon }).addTo(map);
+
+map.on('click', function (e) {
+console.log(e)
+var newMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+L.Routing.control({
+waypoints: [
+L.latLng(41.390205, 2.154007),
+L.latLng(e.latlng.lat, e.latlng.lng)
+]
+}).on('routesfound', function (e) {
+var routes = e.routes;
+console.log(routes);
+
+e.routes[0].coordinates.forEach(function (coord, index) {
+setTimeout(function () {
+marker.setLatLng([coord.lat, coord.lng]);
+}, 500 * index)
+})
+
+}).addTo(map);
+});
+
+});
+
 
 
   document.getElementById('botonU').addEventListener('click', () =>{
@@ -40,42 +70,4 @@ function btnGr(id) {
 
 
 
-  //Mapa1
-  //TODO     Pintamos mapas
-const mapId = "map";                                       //* Id index del mapa
-const initialCoordinates = [41.38662, 2.16627];       //* Cordenadas iniciales (Plaza Sol en Madrid [lat, lng])
-const map = L.map(mapId).setView(initialCoordinates, 13);   //* const Map = (Nos inserta el mapa en el div "map").(Centrada en la cordenada inicial, Zoom = 5)
-
-
-const MAPBOX_API =
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
-
-   // Este token será el que obtengamos en la web de Mapbox
-const ACCESS_TOKEN =
-"pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg";
-
-
-L.tileLayer(MAPBOX_API, {
-    maxZoom: 20,
-    id: "mapbox/streets-v11",
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: ACCESS_TOKEN,
-  }).addTo(map);
-
-  function searchCity() {
-    let city = document.getElementById("cityName").value.toLowerCase();
-    fetch("./coordenatesspain.json")
-      .then((res) => res.json())
-      .then((res) => {
-        let coordenatesCity = res.filter((cities) => cities.ciudad == city);
-        //* Para gestionar un gran cambio del json.
-        let cleanLat = coordenatesCity[0].latitud * 100;
-        let cleanLon = coordenatesCity[0].longitud * 100;
-        const plazaMayorCoordinates = [cleanLat, cleanLon];
-        //* Añadir marcador de la ciudad solicitada en el div.
-        L.marker(plazaMayorCoordinates).bindPopup(`${city} : lat:${cleanLat} long: ${cleanLon}`).addTo(map);
-      });
-
-    }   
-
+  

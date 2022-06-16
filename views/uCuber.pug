@@ -1,7 +1,9 @@
 head
-  link(rel='stylesheet',  href="/style1.css")
-  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==' crossorigin='')
+  link(rel='stylesheet' href='style1.css')
   title Pug  
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
+  link(rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css')
+body  
   nav.nav
     section.textNa
      p.home Home
@@ -72,36 +74,7 @@ head
                     | Precio:
                   output#precioHO.precioHO
                     | 20€
-      #map.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom(tabindex='0' style='position: relative;')
-        .leaflet-pane.leaflet-map-pane(style='transform: translate3d(0px, -78px, 0px);')
-          .leaflet-pane.leaflet-tile-pane
-            .leaflet-layer(style='z-index: 1; opacity: 1;')
-              .leaflet-tile-container.leaflet-zoom-animated(style='z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/7/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(205px, -370px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/8/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(717px, -370px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/7/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(205px, 142px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/8/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(717px, 142px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/6/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-307px, -370px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/9/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(1229px, -370px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/6/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-307px, 142px, 0px); opacity: 1;')
-                img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/9/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(1229px, 142px, 0px); opacity: 1;')
-          .leaflet-pane.leaflet-shadow-pane
-          .leaflet-pane.leaflet-overlay-pane
-          .leaflet-pane.leaflet-marker-pane
-          .leaflet-pane.leaflet-tooltip-pane
-          .leaflet-pane.leaflet-popup-pane
-          .leaflet-proxy.leaflet-zoom-animated(style='transform: translate3d(4012px, 3088.5px, 0px) scale(16);')
-        .leaflet-control-container
-          .leaflet-top.leaflet-left
-            .leaflet-control-zoom.leaflet-bar.leaflet-control
-              a.leaflet-control-zoom-in(href='#' title='Zoom in' role='button' aria-label='Zoom in') +
-              a.leaflet-control-zoom-out(href='#' title='Zoom out' role='button' aria-label='Zoom out') −
-          .leaflet-top.leaflet-right
-          .leaflet-bottom.leaflet-left
-          .leaflet-bottom.leaflet-right
-            .leaflet-control-attribution.leaflet-control
-              a(href='https://leafletjs.com' title='A JS library for interactive maps')
-
+      img#map1.map1(src='barcelona.png')
   section#maxBoxPedir.maxBoxPedir
       img#logoPedir.logoPedir(src='logo.png' alt='')
       #mediumBoxPedir.mediumBoxPedir
@@ -122,64 +95,8 @@ head
                 img#puntero2.puntero2(src='puntero.png' width='17px' height='28px')
                 input#dondeInp.dondeInp(type='text' placeholder='Hasta...' required='')
             #mapaRutaIn.mapaRutaIn
-              #map1.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom(tabindex='0' style='position: relative; outline: none;')
-                .leaflet-pane.leaflet-map-pane(style='transform: translate3d(0px, -78px, 0px);')
-                  .leaflet-pane.leaflet-tile-pane
-                    .leaflet-layer(style='z-index: 1; opacity: 1;')
-                      .leaflet-tile-container.leaflet-zoom-animated(style='z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/7/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(205px, -370px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/8/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(717px, -370px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/7/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(205px, 142px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/8/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(717px, 142px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/6/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-307px, -370px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/9/5?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(1229px, -370px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/6/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-307px, 142px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/4/9/6?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(1229px, 142px, 0px); opacity: 1;')
-                  .leaflet-pane.leaflet-shadow-pane
-                  .leaflet-pane.leaflet-overlay-pane
-                  .leaflet-pane.leaflet-marker-pane
-                  .leaflet-pane.leaflet-tooltip-pane
-                  .leaflet-pane.leaflet-popup-pane
-                  .leaflet-proxy.leaflet-zoom-animated(style='transform: translate3d(4012px, 3088.5px, 0px) scale(16);')
-                .leaflet-control-container
-                  .leaflet-top.leaflet-left
-                    .leaflet-control-zoom.leaflet-bar.leaflet-control
-                      a.leaflet-control-zoom-in(href='#' title='Zoom in' role='button' aria-label='Zoom in') +
-                      a.leaflet-control-zoom-out(href='#' title='Zoom out' role='button' aria-label='Zoom out') −
-                  .leaflet-top.leaflet-right
-                  .leaflet-bottom.leaflet-left
-                  .leaflet-bottom.leaflet-right
-                    .leaflet-control-attribution.leaflet-control
-                      a(href='https://leafletjs.com' title='A JS library for interactive maps') Leaflet
-                .leaflet-pane.leaflet-map-pane(style='transform: translate3d(0px, 0px, 0px);')
-                  .leaflet-pane.leaflet-tile-pane
-                    .leaflet-layer(style='z-index: 1; opacity: 1;')
-                      .leaflet-tile-container.leaflet-zoom-animated(style='z-index: 20; transform: translate3d(0px, 0px, 0px) scale(1);')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2072/1529?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(108px, 74px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2072/1528?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(108px, -438px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2071/1529?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-404px, 74px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2073/1529?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(620px, 74px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2072/1530?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(108px, 586px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2071/1528?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-404px, -438px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2073/1528?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(620px, -438px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2071/1530?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(-404px, 586px, 0px); opacity: 1;')
-                        img.leaflet-tile.leaflet-tile-loaded(alt='' role='presentation' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2073/1530?access_token=pk.eyJ1IjoiY2Nhc3RpbGxvMDZtYiIsImEiOiJja2k1eXpybXU3em1mMnRsNjNqajJ0YW12In0.aFQJlFDBDQeUpLHT4EiRYg' style='width: 512px; height: 512px; transform: translate3d(620px, 586px, 0px); opacity: 1;')
-                  .leaflet-pane.leaflet-shadow-pane
-                  .leaflet-pane.leaflet-overlay-pane
-                  .leaflet-pane.leaflet-marker-pane
-                  .leaflet-pane.leaflet-tooltip-pane
-                  .leaflet-pane.leaflet-popup-pane
-                  .leaflet-proxy.leaflet-zoom-animated(style='transform: translate3d(1.0612e+06px, 783284px, 0px) scale(4096);')
-                .leaflet-control-container
-                  .leaflet-top.leaflet-left
-                    .leaflet-control-zoom.leaflet-bar.leaflet-control
-                      a.leaflet-control-zoom-in(href='#' title='Zoom in' role='button' aria-label='Zoom in') +
-                      a.leaflet-control-zoom-out(href='#' title='Zoom out' role='button' aria-label='Zoom out') −
-                  .leaflet-top.leaflet-right
-                  .leaflet-bottom.leaflet-left
-                  .leaflet-bottom.leaflet-right
-                    .leaflet-control-attribution.leaflet-control
-                      a(href='https://leafletjs.com' title='A JS library for interactive maps') Leaflet
+              #map(style='width:100%; height: 40vh')
+            //- #map(style='width:100%; height: 100vh')  
             #pagoCuber.pagoCuber
               h2#tiempoFinal.tiempoFinal
                 | Puedes tener un coche en menos de 30 min.
@@ -190,6 +107,6 @@ head
         #botonpagar.botonpagar
           input#botonpagarB.botonpagarB(type='button' value='Pedir Cuber')
 
-
-  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js' integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==' crossorigin='')
+  script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
   script(src='frontU.js')     

@@ -14,8 +14,8 @@ const user = {
     telefono = req.body.phone;
     dni = req.body.dni;
     const emailExp = new RegExp(/^([\d\w_\.-]+)@([\d\w\.-]+)\.([\w\.]{3})$/);
-    const nameExp = new RegExp(/^([A-Za-z0-9_]{1,15})$/);
-    const unNameExp = new RegExp(/^([A-Za-z0-9_]{1,15})$/);
+    const nameExp = new RegExp(/^([A-Za-z]{1,15})$/);
+    const unNameExp = new RegExp(/^([A-Za-z]{1,15})$/);
     const telfExp = new RegExp(/^\d{9}$/);
     const dniExp = new RegExp(/^\d{8}[a-zA-Z]$/);
     const passExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/);
@@ -29,7 +29,7 @@ const user = {
       !telfExp.test(telefono)
     ) {
       console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
-      res.send(nombre);
+     
     } else {
       let insertQuery = `INSERT INTO Usuarios
       (

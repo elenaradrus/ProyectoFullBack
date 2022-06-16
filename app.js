@@ -6,7 +6,7 @@ require("./database/mongo")
 require("./database/sqlDataBase")
 
 const router = require("./routes/routes")
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
  
 
 app.set("view engine", "pug");

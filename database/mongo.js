@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 /* const password = process.env.mPassword;
 const dblocalM = process.env.mdblocalM */
 
-const connectionS = `mongodb://localhost:27017/test`;
+const connectionS = `mongodb://127.0.0.1:27017/test`;
 /* const connectionL = process.env.projectMoviesDB */
 
 mongoose
