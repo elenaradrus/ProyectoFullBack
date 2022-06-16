@@ -6,13 +6,14 @@ head
 body  
   nav.nav
     section.textNa
-     p.home Home
-     p.uCuber U CUBER
-     div.login
-       p.busqueda Nº de trayecto
-       div.barra
-         input.search(type='text' placeholder='🔍 search')
-         input#logout.log(type='submit' value='Log out')
+     form(action="/logHome", method="post")  
+      input.home(type='submit' value='Home')
+      p.uCuber U CUBER
+      div.login
+        p.busqueda Nº de trayecto
+        div.barra
+           input.search(type='text' placeholder='🔍 search')
+           input#logout.log(type='submit' value='Log out')
   section#boxUtotal.boxUtotal
       section#uBox.uBox
         #uCuberH.uCuberH

@@ -1,3 +1,4 @@
+
 // form inputs
 const formUser = document.querySelector('#name');
 const formLast = document.querySelector('#surname');
@@ -94,6 +95,7 @@ document.getElementById('log').addEventListener('click', () =>{
     mostrar1(contLog)
     btnGr(contenedorRegis)
 })
+
 
 function mostrar(id) {
     let test = document.getElementById('contenedorRegis');

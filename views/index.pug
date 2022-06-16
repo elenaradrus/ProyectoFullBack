@@ -72,15 +72,17 @@ head
             | Sign up for free
           p.logPText
             | Full access to in any of our products
-        .inpBu(action="/login" method="post")
+        form.inpBu(action="/login" method="post")
           input#userLog.userLog(type='text' name='userLog' placeholder='Enter your user log' required='')
           input#passLog.passLog(type='password' name='passLog' placeholder='Enter your password log' required='')
           input#botonLog.botonLog(type='submit' value='Continue')
+          
+
         //- p.logPText
         //-   | -------- OR --------
         //- .g-signin2(data-longtitle='true' data-onsuccess='onSignIn')
 
-
+        
   section.textCentral
       h1.travel
         | Travel with us
