@@ -1,4 +1,3 @@
-
 // google
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -11,34 +10,6 @@ function onSignIn(googleUser) {
   }
 
 
-  document.getElementById('botonU').addEventListener('click', () =>{
-    mostrar(maxBoxPedir)
-   
-})
-document.getElementById('botonpagarB').addEventListener('click', () =>{
-
-    btnGr(maxBoxPedir)
-})
-
-function mostrar(id) {
-    let test = document.getElementById('maxBoxPedir');
-    if (test.style.display == 'block') {
-        test.style.display = 'none';
-    } else {
-        test.style.display = 'block'
-    }
-}
-function btnGr(id) {
-    let test = document.getElementById('maxBoxPedir');
-    if (test.style.display == 'inline') {
-        test.style.display = 'block';
-    } else {
-        test.style.display = 'none'
-    }
-}
-
-
-
 
   //Mapa1
   //TODO     Pintamos mapas
@@ -48,7 +19,7 @@ const map = L.map(mapId).setView(initialCoordinates, 13);   //* const Map = (Nos
 
 
 const MAPBOX_API =
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
+  "https://api.mapbox.com/styles/v1/%7Bid%7D/tiles/%7Bz%7D/%7Bx%7D/%7By%7D?access_token=%7BaccessToken%7D";
 
    // Este token será el que obtengamos en la web de Mapbox
 const ACCESS_TOKEN =
@@ -76,6 +47,4 @@ L.tileLayer(MAPBOX_API, {
         //* Añadir marcador de la ciudad solicitada en el div.
         L.marker(plazaMayorCoordinates).bindPopup(`${city} : lat:${cleanLat} long: ${cleanLon}`).addTo(map);
       });
-
-    }   
-
+    }

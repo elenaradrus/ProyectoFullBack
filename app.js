@@ -1,9 +1,12 @@
 /* require('./database/mongo.cnx') */
-require("./database/mongo")
+
 const express = require("express");
 const app = express();
+require("./database/mongo")
+require("./database/sqlDataBase")
+
 const router = require("./routes/routes")
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
  
 
 app.set("view engine", "pug");
@@ -12,8 +15,6 @@ app.use(express.static(__dirname + "/views/css"));
  
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
- 
 
 app.use("/", router);
 

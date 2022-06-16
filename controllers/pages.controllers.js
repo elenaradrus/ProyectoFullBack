@@ -1,6 +1,6 @@
 const pages = {
     home: (req, res) => {
-      res.render("uCuber");
+      res.render("index");
     },
   };
   

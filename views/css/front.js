@@ -1,6 +1,4 @@
 
-
-
 document.getElementById('sing').addEventListener('click', () =>{
     mostrar(contenedorRegis)
     btnGr1(contLog)

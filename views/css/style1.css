@@ -153,9 +153,11 @@ body {
 
 /*TODO                   termino nav */
 
+
 /*TODO                    comienzo U CUBER */
 .boxUtotal {
     
+
     position: absolute;
     width: 1607px;
     left: 0px;
@@ -165,9 +167,7 @@ body {
 }
 
 .uBox {
-    
     box-sizing: border-box;
-
     position: absolute;
     width: 721px;
     height: 1040px;
