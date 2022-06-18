@@ -1,14 +1,19 @@
  
 head
   link(rel='stylesheet',  href="/style.css")
+  link(rel='stylesheet',  href="/style1.css")
   title Pug  
   nav.nav
-    p.home Home
-    div.login
-      p.busqueda Nº de trayecto
-      div.barra
-        input.search(type='text' placeholder='🔍 search')
-        input#logout.log(type='submit' value='Log out')
+    section.textNa
+     form(action="/logHome", method="post")  
+      input.home(type='submit' value='Home')
+     form(action="/uCuber1", method="post") 
+      input.uCuber(type='submit' value='U CUBER')
+     div.login
+        p.busqueda Nº de trayecto 
+        div.barra
+           input.search(type='text' placeholder='🔍 search')
+           input#logout.log(type='submit' value='Log out')
   section.textCentral
       h1.travel
         | Travel with us
@@ -22,7 +27,7 @@ head
         |             Somos conductores de tu tiempo y
         br
         |             no vamos a perderlo!!
-      input.botonTravelSing(type='button' value='contenedorRegis')
+      input#botonTravel.botonTravel(type='button' value='Pide un Cuber')
   section.faldon
       p.faldonP
         | Actualmente solo disponemos de coches en

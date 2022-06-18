@@ -32,6 +32,11 @@ body {
 .home {
     color: #C3C3C3;
     margin-left: 25px;
+    margin-top: 21px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border: none;
+    background: none;
 }
 
 .home:hover {
@@ -42,6 +47,11 @@ body {
 .uCuber {
     color: #C3C3C3;
     margin-left: 25px;
+    margin-top: 21px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border: none;
+    background: none;
 }
 
 .uCuber:hover {
@@ -52,8 +62,8 @@ body {
 .busqueda {
     color: #C3C3C3;
     position: relative;
-    bottom: -9px;
-    left: 1087px;
+    bottom: 44px;
+    left: 1198px;
 }
 
 .login {
@@ -439,10 +449,10 @@ body {
 .minBoxPedir{
     box-sizing: border-box;
     position: absolute;
-    width: 666px;
-    height: 564px;
-    left: 140px;
-    top: 173px;
+    width: 908px;
+    height: 615px;
+    left: 72px;
+    top: 126px;
     background: #FFFFFF;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
@@ -511,13 +521,19 @@ body {
     border-radius: 43px;
     
 } */
+.calleMap{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-bottom: -38px;
+}
 
 .pagoCuber{
     position: absolute;
     width: 415px;
     height: 58px;
-    left: 134px;
-    top: 417px;
+    left: 248px;
+    top: 497px;
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     display: flex;
@@ -556,3 +572,73 @@ border: none;
     height: 10px;
     width: 10px;
 }
+
+/*TODO                   Comienzo cancela tu cuber */
+
+.logo{
+    position: absolute;
+    width: 204px;
+    height: 130px;
+    left: -94px;
+    top: -232px;
+
+}
+
+.uCuberC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 166px;
+    gap: 40px;
+    
+    position: absolute;
+    width: 534px;
+    height: 585px;
+    left: 108px;
+    top: 324px;
+
+}
+.cabeceraC {
+    position: absolute;
+    width: 204px;
+    height: 130px;
+    left: 174px;
+    top: -38px;
+
+}
+
+
+.nombreC {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 33px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-top: 61px;
+}
+
+.telC {
+    margin-left: 79px;
+}
+
+
+.botonC {
+    width: 322px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #ff0000;
+    opacity: 0.55;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: 74px;
+}
+/*TODO                   Final cancela tu cuber */

@@ -1,0 +1,48 @@
+html
+  head
+    link(rel='stylesheet' href='style1.css')
+    title Pug 
+    link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
+    link(rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css')
+  body
+    nav.nav
+      section.textNa
+        form(action="/logHome", method="post")  
+          input.home(type='submit' value='Home')
+        form(action="/uCuber1", method="post") 
+          input.uCuber(type='submit' value='U CUBER')
+          .login
+            p.busqueda Nº de trayecto 
+            .barra
+              input.search(type='text' placeholder='🔍 search')
+              input#logout.log(type='submit' value='Log out')
+    section#boxUtotal.boxUtotal
+      section#uBox.uBox
+        #uCuberC.uCuberC
+          #upersonalBox.upersonalBox
+            #cabeceraC.cabeceraC
+              .logo
+                img(src='logo.png' width='300px' height='200px' alt='')  
+              h1#cabeTexU.cabeTexU U Cuber
+              p#pTexU.pTexU(style='color: grey;') You are ready?
+            #nombreC.nombreC
+              p#FnameU.FnameU(style='color: grey;') Conductor:
+              p#outName.outName Al-hamon
+              p#LnameU.LnameU(style='color: grey;') Matricula:
+              p#outLast.outLast 1234GHF
+            #dniTelU.dniTelU
+              p#dniU.dniU(style='color: grey;') Nº de trayecto:
+              p#outTra.outDni
+              p#telC.telC(style='color: grey;') Telefono:
+              p#outTel.outTel 765398275
+            #emailOU.emailOU
+              p#emailU.emailU(style='color: grey;') Su CUBER:
+              p#outEmail.outEmail
+                | En 
+                span(style='color: red;') 10min
+                |   estaremos recogiendole
+            input#botonC.botonC(type='button' value='Cancela tu CUBER')
+      #map(style='width:739px; height:1018; postion: relative; top: 0px; left: 721px')
+    script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+    script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
+    script(type='module' src='frontCancelar.js')

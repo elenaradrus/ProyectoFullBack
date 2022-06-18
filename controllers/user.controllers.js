@@ -123,8 +123,21 @@ const user = {
 
       //res.json(rows);
 
-      for (let i = 0; i < rows.length; i++) {
+      //connection.end();
+    }
+    )
+  },
+  logHome: (req,res) => {
+    res.render("indexLog")
+  },
+  uCuber1: (req,res) => {
+    res.render("uCuber")
+  },
+  verCoche: (req,res) => {
+    res.render("verCoche")
+  }
 
+      for (let i = 0; i < rows.length; i++) {
         if (rows[i].email == loginEmail && rows[i].contrasena == passLog) {
           //res.render("uCuber") 
           let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
