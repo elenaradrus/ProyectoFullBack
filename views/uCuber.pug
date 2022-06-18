@@ -24,23 +24,23 @@ body
               p#pTexU.pTexU(style='color: grey;')
                 | You are ready?
             #nombreU.nombreU
-              p#FnameU.FnameU(style='color: grey;')
-                | First name:
-              p#outName.outName Javier
+              p#FnameU.FnameU(style='color: grey;') 
+                | First name: 
+              p#outName.outName !{logNombre}
               p#LnameU.LnameU(style='color: grey;')
                 | Last name:
-              p#outLast.outLast Malandro
+              p#outLast.outLast !{logApellido}
             #dniTelU.dniTelU
               p#dniU.dniU(style='color: grey;')
                 | D.N.I:
-              p#outDni.outDni 23123445T
+              p#outDni.outDni !{logDni}
               p#telU.telU(style='color: grey;')
                 | Telefono:
-              p#outTel.outTel 765398275
+              p#outTel.outTel !{logTelefono}
             #emailOU.emailOU
               p#emailU.emailU(style='color: grey;')
                 | Email adress:
-              p#outEmail.outEmail malandro@gmail.com
+              p#outEmail.outEmail !{logEmail}
             input#botonU.botonU(type='button' value='Pide tu CUBER')
           #rutasHistorialBox.rutasHistorialBox
             h1#historialTexU.historialTexU

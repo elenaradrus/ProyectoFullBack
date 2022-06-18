@@ -77,7 +77,7 @@ const checkPassFormat = (pass) => {
       alert('El correo electrónico y la contraseña no pueden ser iguales'); return;
     }
   
-   
+
   });  
 
 
@@ -95,6 +95,8 @@ document.getElementById('log').addEventListener('click', () =>{
     mostrar1(contLog)
     btnGr(contenedorRegis)
 })
+
+
 
 
 function mostrar(id) {

@@ -1,0 +1,19 @@
+
+{
+    "plugins": [],
+    "source": {
+        "include": "controllers/user.controllers.js", 
+        "includePattern": ".js$", 
+        "excludePattern": "(node_modules|docs)"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "recurse": true, 
+        "destination": "./docs", 
+        "template": ""
+    }
+}
+

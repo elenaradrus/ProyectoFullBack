@@ -4,6 +4,7 @@ CREATE DATABASE cuberRelacional;
 
 USE cuberRelacional;
 
+
 CREATE TABLE Usuarios (
 id INT AUTO_INCREMENT,
 nombre VARCHAR(300) NOT NULL,
@@ -15,13 +16,34 @@ contrasena VARCHAR(300) NOT NULL,
 PRIMARY KEY(id)
 );
 
+SELECT * FROM Usuarios;
 
-    
+INSERT INTO Usuarios VALUES(null, "Elena", "Radu", "51276089G","elenaradu241@gmail.com","606308604","Elena123*");
+INSERT INTO Usuarios VALUES(null, "Paco", "Suarez", "58392087F","paco@gmail.com","6948378982","Paco123*");
+INSERT INTO Usuarios VALUES(null, "Federico", "Garcia", "57832909V","federico@gmail.com","674800278","Federico123*");
+
+
 CREATE TABLE Coches(
 id INT AUTO_INCREMENT,
-matricula VARCHAR(300),
+nombre VARCHAR(300) NOT NULL,
+matricula VARCHAR(300) NOT NULL,
+telefono VARCHAR(15) NOT NULL,
 PRIMARY KEY(id)
 );   
+
+SELECT * FROM Coches;
+
+INSERT INTO Coches VALUES(null, "Juan", "3546FGR", "604839578");
+INSERT INTO Coches VALUES(null, "Victor", "7364DFA", "627485909");
+INSERT INTO Coches VALUES(null, "Sandra", "2809SKF", "690073689");
+INSERT INTO Coches VALUES(null, "Amanda", "7483CGB", "688900378");
+INSERT INTO Coches VALUES(null, "Jose", "7483AHD", "687125546");
+INSERT INTO Coches VALUES(null, "David", "0937FRK", "644567099");
+INSERT INTO Coches VALUES(null, "Susana", "5017VTQ", "690788920");
+INSERT INTO Coches VALUES(null, "Miguel", "6389DFT", "626670022");
+INSERT INTO Coches VALUES(null, "Sebastian", "9263CVR", "643889201");
+INSERT INTO Coches VALUES(null, "Lourdes", "2748SDF", "623749899");
+
 
 CREATE TABLE Pedidos(
 id INT AUTO_INCREMENT,
@@ -46,9 +68,8 @@ id INT AUTO_INCREMENT,
 nombre VARCHAR(300) NOT NULL,
 apellido VARCHAR(300) NOT NULL,
 dni CHAR(9) UNIQUE NOT NULL,
-email VARCHAR(300),
+email VARCHAR(300) NOT NULL,
 telefono VARCHAR(15),
-direccion VARCHAR(500),
 contrasena VARCHAR(300) NOT NULL,
 PRIMARY KEY(id)
 );    
@@ -62,8 +83,6 @@ PRIMARY KEY (id),
 FOREIGN KEY(fk_id_Administrador) REFERENCES Administrador(id) ON UPDATE CASCADE ON DELETE CASCADE, 
 FOREIGN KEY(fk_id_pedido) REFERENCES Pedidos(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
-    
-#ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';    
 
     
     

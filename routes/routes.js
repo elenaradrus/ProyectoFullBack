@@ -1,9 +1,14 @@
+/**
+ * Creamos los endpoints que unen las funciones guardadas en user.controllers junto con las diferentes
+ * vistas pug
+ */
+
+
 const router = require("express").Router();
 const pages = require("../controllers/pages.controllers")
 const user = require("../controllers/user.controllers")
 
-// const login = require("../controllers/user.controllers")
-// const log = require("../controllers/user.controllers")
+
  
 
 //Rutas de inicio
@@ -15,7 +20,7 @@ router.post("/uCuber1", user.uCuber1);
 router.post("/verCoche", user.verCoche);
 router.post("/registeruser",user.registerUser);
 
-// router.put("/updateuser",user.updateUser);
+
 
  
 
