@@ -1,3 +1,7 @@
+/**
+ * Conexion con la base de datos de mongoDB
+ */
+
 const mongoose = require("mongoose");
 /* const password = process.env.mPassword;
 const dblocalM = process.env.mdblocalM */
