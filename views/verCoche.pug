@@ -4,6 +4,7 @@ html
     title Pug 
     link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
     link(rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
   body
     nav.nav
       section.textNa
@@ -30,11 +31,20 @@ html
               p#outName.outName Al-hamon
               p#LnameU.LnameU(style='color: grey;') Matricula:
               p#outLast.outLast 1234GHF
-            #dniTelU.dniTelU
-              p#dniU.dniU(style='color: grey;') Nº de trayecto:
-              p#outTra.outDni
-              p#telC.telC(style='color: grey;') Telefono:
+              p#telC.telC1(style='color: grey;') Telefono:
               p#outTel.outTel 765398275
+            #dniTelU.dniTelU1
+              p#dniU.dniU(style='color: grey;') Nº de trayecto:
+              p#outTra.outDni(name='trakNum')
+              
+            #dniTelU1.dniTelU
+              p#dniU1.dniU(style='color: grey;') Fecha:
+              p#outTra1.outDni(name='trakFecha')
+              p#telC1.telC(style='color: grey;') Hora:
+              p#outTra2.outDni(name='trakHora')
+            #emailOU1.emailOU
+              p#emailU1.emailU(style='color: grey;') Recogida:
+              p#outTra3.outDni(name='trakRecogida')
             #emailOU.emailOU
               p#emailU.emailU(style='color: grey;') Su CUBER:
               p#outEmail.outEmail
@@ -42,6 +52,7 @@ html
                 span(style='color: red;') 10min
                 |   estaremos recogiendole
             input#botonC.botonC(type='button' value='Cancela tu CUBER')
+            input#botonF.botonF(type='button' value='Generar Factura')
       #map(style='width:739px; height:1018; postion: relative; top: 0px; left: 721px')
     script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
     script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')

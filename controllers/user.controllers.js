@@ -270,9 +270,7 @@ const user = {
     });
 
   },
-  logHome: (req, res) => {
-    res.render("indexLog");
-  },
+  
   uCuber1: (req, res) => {
     res.render("uCuber");
   },

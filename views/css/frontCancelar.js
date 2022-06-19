@@ -40,10 +40,41 @@ L.latLng(latCuber, lngCuber)
 var routes = e.routes;
 console.log(routes);
 
+
+// Obtener fecha
+let date = new Date();
+console.log(date.toLocaleDateString());
+document.getElementById('outTra1').innerHTML = date.toLocaleDateString();
+
+// Obtener hora
+var currentTime = new Date();
+
+currentTime.toLocaleTimeString();
+console.log(currentTime.toLocaleTimeString());
+document.getElementById('outTra2').innerHTML = currentTime.toLocaleTimeString();
+
+// Obtener dirección
+console.log(routes[0].name);
+document.getElementById('outTra3').innerHTML = routes[0].name;
+
+// Obtener nºTrayecto
+console.log(uuid.v4());
+const traking = uuid.v4();
+document.getElementById('outTra').innerHTML = traking;
+
+
+
+
+
 e.routes[0].coordinates.forEach(function (coord, index) {
 setTimeout(function () {
 marker.setLatLng([coord.lat, coord.lng]);
 }, 1500 * index)
+
+
+
+
+
 })
 
 }).addTo(map);

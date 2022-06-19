@@ -85,7 +85,7 @@ console.log(currentTime.toLocaleTimeString());
 console.log(routes[0].name);
 
 // Obtener nºTrayecto
-console.log(uuid.v4());
+// console.log(uuid.v4());
   
 
 
@@ -111,7 +111,7 @@ console.log(uuid.v4());
 //TODO                              Funciones de ocultar y ver
 
 
-  document.getElementById('botonU').addEventListener('click', () =>{
+  document.getElementById('botonTravel').addEventListener('click', () =>{
     mostrar(maxBoxPedir)
    
 })
