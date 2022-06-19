@@ -298,14 +298,22 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 622px;
-    height: 358px;
+    height: 445px;
     left: -80px;
-    top: 554px;
-
+    top: 470px;
     background: #FFFFFF;
     border: 1px solid #E7E7E7;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 37px;
+
+}
+.rutasHistorialBox1 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 220px;
+    height: 74px;
+    left: 180px;
+    top: 209px;
 }
 
 .historialTexU{
@@ -324,6 +332,33 @@ body {
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 37px;
     font-size: 13px;
+}
+.contHistoText1{
+    box-sizing: border-box;
+    position: absolute;
+    width: 551px;
+    height: 113px;
+    left: 19px;
+    top: 183px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+.contHistoText2{
+    box-sizing: border-box;
+    position: absolute;
+    width: 551px;
+    height: 113px;
+    left: 19px;
+    top: 305px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+
 }
 
 
@@ -553,6 +588,21 @@ body {
 }
 
 .botonpagarB{
+   
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 5px;
+font-family: 'Poppins', sans-serif;
+font-size: 20px;
+color: #FFFFFF;
+background: #111111;
+opacity: 0.25;
+border-radius: 32px;
+border: none;
+}
+.botonpagarB1{
    
 position: absolute;
 left: 0px;

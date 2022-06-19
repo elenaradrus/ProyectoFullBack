@@ -38,40 +38,91 @@ module.exports = usersModel;*/
 //   res.sendFile(__dirname + 'views/index.pug');
 // });
 
-// app.post("/", urlencodedParser,(req, res) => {
-  // function validar () {
-//     var nombre, apellidos, email, contrasena, telefono;
-//     nombre = req.body.name;
-//     apellidos = req.body.surname;
-//     email = req.body.email;
-//     contrasena = req.body.pass;
-//     contrasenaConf = req.body.passConf;
-//     telefono = req.body.phone;
-//     dni = req.body.dni;
     
+
+
+
+
+// function createCard(id, task) {
+//     //<div class="card text-white bg-info mb-6  offset-md-4" style="max-width: 20rem;">
+//     const principalDiv = document.createElement('div');
+//     principalDiv.setAttribute("class", "card bg-light mb-3");
+//     principalDiv.style = "max-width: 20rem;";
+//     principalDiv.setAttribute("name", id);
+//     principalDiv.setAttribute("id", i);
+//     //<div class="card-header">Formulario Tareas</div>
+//     const headerDiv = document.createElement('div');
+//     const contentDiv = document.createTextNode("Id: " + id);
+//     headerDiv.setAttribute("class", "card-header");
+
+//     headerDiv.appendChild(contentDiv);
+//     principalDiv.appendChild(headerDiv);
+//     // <div class="card-body">
+//     const bodyDiv = document.createElement('form');
+//     bodyDiv.setAttribute("name", "formulario")
+//     bodyDiv.setAttribute("class", "formulario")
+//     // const pTitle = document.createElement("p");
+//     // const pTitleText = document.createTextNode("Title: " + task.title);
+
+
+//     const pTitleInText = document.createElement("input");
+//     pTitleInText.type = "text";
+//     pTitleInText.value =  task.title ;
+//     // pTitleInText.placeholder = "Modifica Titulo";
+//     pTitleInText.setAttribute("name", "tituloTar");
+//     pTitleInText.setAttribute("class", "tituloTar");
+   
+
+
+//     // const pTitleIn = document.createTextNode('placeholder' + task.title);
+//     const hr = document.createElement('hr');
+//     // const pDesc = document.createElement("p");
+//     // const pDescText = document.createTextNode("Description: " + task.description);
+
+
+//     const pDescInText = document.createElement("input");
+//     pDescInText.type = "text";
+//     pDescInText.value = task.description;
+//     // pDescInText.placeholder = "Modifica Descripción";
+//     pDescInText.setAttribute("name", "descriptionTar");
+//     pDescInText.setAttribute("class", "descriptionTar");
   
-    //regex
-//     const emailExp = new RegExp(/^([\d\w_\.-]+)@([\d\w\.-]+)\.([\w\.]{3})$/);
-//     const nameExp = new RegExp(/^([A-Za-z0-9_]{1,15})$/);
-//     const unNameExp = new RegExp(/^([A-Za-z0-9_]{1,15})$/);
-//     const telfExp = new RegExp (/^\d{9}$/);
-//     const dniExp = new RegExp(/^\d{8}[a-zA-Z]$/);
-//     const passExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/);
-    
-    //condicion de comprobacion
-//     if((!emailExp.test(email))||(!nameExp.test(nombre))||(!unNameExp.test(apellidos))||(!dniExp.test(dni))
-//     ||(!passExp.test(contrasena))||(!passExp.test(contrasenaConf))||!telfExp.test(telefono)){
-//       console.log("campos incorrectos") //renderizar una pagina de campos incorrectos
-//     }else{
-//       console.log("todo ok")
-//     }
+
+
+   
+//     bodyDiv.appendChild(pTitleInText);
+//     bodyDiv.appendChild(hr);
   
-//     if(contrasena != contrasenaConf){
-//       console.log("las contraseñas no coinciden")
-//     }else{
-//       console.log("todo ok2")
-//     }
-//     console.log(nombre)
-//     db.close();
-// })
+//     bodyDiv.appendChild(pDescInText);
+//     bodyDiv.appendChild(hr);
+
+//     var inputAdd = document.createElement('input');
+//     inputAdd.type = "button";
+//     inputAdd.value = "Modificar";
+//     inputAdd.setAttribute("name", "añadir");
+//     inputAdd.setAttribute("class", "boton");
+//     inputAdd.setAttribute("id", id);
+//     bodyDiv.appendChild(inputAdd)
+
+
+//     var input = document.createElement("input");
+//     input.type = "button";
+//     input.value = "Borrar Tarea";
+   
+//     input.setAttribute("name", "delete");
+//     input.setAttribute("class", "boton");
+//     input.setAttribute("id", id);
+//     bodyDiv.appendChild(input);
+
+//     principalDiv.appendChild(bodyDiv);
+
+//     let contenedor = document.getElementById('contenedor');
+//     contenedor.appendChild(principalDiv)
+
+//     // document.body.appendChild(principalDiv);
+//     const br = document.createElement("br");
+//     contenedor.appendChild(br);
+
+// }
+  
 
