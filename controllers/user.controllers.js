@@ -121,22 +121,6 @@ const user = {
       if (err) throw err;
       console.log('Usuario: \n', rows);
 
-      //res.json(rows);
-
-      //connection.end();
-    }
-    )
-  },
-  logHome: (req,res) => {
-    res.render("indexLog")
-  },
-  uCuber1: (req,res) => {
-    res.render("uCuber")
-  },
-  verCoche: (req,res) => {
-    res.render("verCoche")
-  }
-
       for (let i = 0; i < rows.length; i++) {
         if (rows[i].email == loginEmail && rows[i].contrasena == passLog) {
           //res.render("uCuber") 
@@ -185,20 +169,18 @@ const user = {
       }
 
     });
-
-
-
-
-
-
-
-
-    //res.render("uCuber")
-
-
-    //connection.end();
-
-
+     
+    
+    
+  },
+  logHome: (req,res) => {
+    res.render("indexLog")
+  },
+  uCuber1: (req,res) => {
+    res.render("uCuber")
+  },
+  verCoche: (req,res) => {
+    res.render("verCoche")
   },
   logHome: (req, res) => {
     console.log("hola");
@@ -224,5 +206,4 @@ const user = {
 
 
 module.exports = user;
-
 
