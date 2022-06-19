@@ -706,6 +706,16 @@ body {
     top: 97px;
     border-radius: 24px;
 }
+.contLog1 {
+    display: flex;
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
 
 .contLogBox {
     display: flex;

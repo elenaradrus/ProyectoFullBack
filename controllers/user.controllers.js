@@ -132,7 +132,9 @@ const user = {
 
     connection.query(nameCorrect, (err, rows) => {
       if (err) throw err;
-      console.log("Usuario: \n", rows);
+      
+      console.log('Usuario: \n', rows);
+
 
       for (let i = 0; i < rows.length; i++) {
         if (rows[i].email == loginEmail && rows[i].contrasena == passLog) {
@@ -266,6 +268,7 @@ const user = {
         }
       }
     });
+
   },
   logHome: (req, res) => {
     res.render("indexLog");
@@ -275,6 +278,7 @@ const user = {
   },
   verCoche: (req, res) => {
     res.render("verCoche");
+
   },
   logHome: (req, res) => {
     console.log("hola");
@@ -292,3 +296,4 @@ const user = {
 };
 
 module.exports = user;
+
