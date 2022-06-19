@@ -51,30 +51,74 @@ body
                     p#fechaH.fechaH
                       | fecha:
                     output#fechaOu.fechaOu
-                      | 12/02/21
+                      | !{fecha}
                 #salidLlegada.salidLlegada
                   p#salidaH.salidaH(style='color: red;')
-                    | Salida:
+                    | Recogia:
                   output#salidaO.salidaO
-                    | Estais de las Arts
+                    | !{recogida}
                   p#llegadaH.llegadaH(style='color: red;')
-                    | LLegada:
+                    | Nº Trayecto
                   output#llegadaHO.llegadaHO
-                    | Camp Barca
+                    | !{numtrayeto}
                 #horas.horas
                   p#oraH.oraH(style='color: red;')
                     | Hora:
                   output#oraO.oraO
-                    | 19:30h
-                  p#oraHS.oraHS(style='color: red;')
-                    | Hora:
-                  output#oraSO.oraSO
-                    | 20:13h
-                #precioHis.precioHis
+                    | !{hora}
                   p#precioH.precioH(style='color: grey;')
                     | Precio:
                   output#precioHO.precioHO
                     | 20€
+              #contHistoText1.contHistoText1
+                #contFechaText1.contFechaText
+                    p#fechaH1.fechaH
+                      | fecha:
+                    output#fechaOu1.fechaOu
+                      | !{fecha1}
+                #salidLlegada1.salidLlegada
+                  p#salidaH1.salidaH(style='color: red;')
+                    | Recogia:
+                  output#salidaO1.salidaO
+                    | !{recogida1}
+                  p#llegadaH1.llegadaH(style='color: red;')
+                    | Nº Trayecto
+                  output#llegadaHO1.llegadaHO
+                    | !{numtrayeto1}
+                #horas1.horas
+                  p#oraH1.oraH(style='color: red;')
+                    | Hora:
+                  output#oraO1.oraO
+                    | !{hora1}
+                  p#precioH1.precioH(style='color: grey;')
+                    | Precio:
+                  output#precioHO1.precioHO
+                    | 20€
+              #contHistoText2.contHistoText2
+                #contFechaText2.contFechaText
+                    p#fechaH2.fechaH
+                      | fecha:
+                    output#fechaOu2.fechaOu
+                      | !{fecha2}
+                #salidLlegada2.salidLlegada
+                  p#salidaH2.salidaH(style='color: red;')
+                    | Recogia:
+                  output#salidaO2.salidaO
+                    | !{recogida2}
+                  p#llegadaH2.llegadaH(style='color: red;')
+                    | Nº Trayecto
+                  output#llegadaHO2.llegadaHO
+                    | !{numtrayeto2}
+                #horas2.horas
+                  p#oraH2.oraH(style='color: red;')
+                    | Hora:
+                  output#oraO2.oraO
+                    | !{hora2}
+                  p#precioH2.precioH(style='color: grey;')
+                    | Precio:
+                  output#precioHO2.precioHO
+                    | 20€
+            #rutasHistorialBox1.rutasHistorialBox1         
       img#map1.map1(src='barcelona.png')
   section#maxBoxPedir.maxBoxPedir
       img#logoPedir.logoPedir(src='logo.png' alt='')
@@ -109,3 +153,6 @@ body
   script(src='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js')
   script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
   script(type='module' src='frontU.js')     
+
+
+
