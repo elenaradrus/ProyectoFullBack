@@ -283,7 +283,24 @@ const user = {
     res.render("uCuber");
   },
   verCoche: (req, res) => {
-    res.render("verCoche");
+
+    const data = Math.round(Math.random() * 10);
+    console.log(data);
+
+    let query = `SELECT * from Coches WHERE id = ${data}`;
+    connection.query(query, (err, rows) => {
+      if (err) throw err;
+      console.log('Datos de Coches: \n', rows);
+      carName = rows[0].nombre
+      carNum = rows[0].matricula
+      carTelf = rows[0].telefono
+      console.log(carName);
+      console.log(carNum);
+      console.log(carTelf);
+      res.render("verCoche" ,{carName,carNum,carTelf});
+      //connection.end();
+    });
+    
 
   },
   logHome: (req, res) => {
@@ -303,13 +320,13 @@ const user = {
 }
 //   record: (req, res) => {
 
-    
+
 // // Create a do
-    // }
+// }
 
-    // crearPdf();
+// crearPdf();
 
-  // }
+// }
 
 
 
