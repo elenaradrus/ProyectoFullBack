@@ -1,84 +1,57 @@
 <head>
-    <link rel="stylesheet" href="style1.css" />
-    <title>Pug </title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-  </head>
-  
-  <body>
-    <nav class="nav">
-      <section class="textNa">
-        <form action="/logHome" method="post">
-          <input class="home" type="submit" value="Home" />
-          <input class="uCuber" type="submit" value="U CUBER" />
-          <div class="login">
-            <p class="busqueda">Nº de trayecto </p>
-            <div class="barra">
-              <input class="search" type="text" placeholder="🔍 search" />
-              <input class="log" id="logout" type="submit" value="Log out" />
-            </div>
-          </div>
-        </form>
-      </section>
-    </nav>
-    <section class="boxUtotal" id="boxUtotal">
-      <section class="uBox" id="uBox">
-        <div class="uCuberH" id="uCuberH">
-          <div class="upersonalBox" id="upersonalBox">
-            <div class="cabeceraU" id="cabeceraU">
-              <h1 class="cabeTexU" id="cabeTexU">U Cuber</h1>
-              <p class="pTexU" id="pTexU" style="color: grey;">You are ready?</p>
-            </div>
-            <div class="nombreU" id="nombreU">
-              <p class="FnameU" id="FnameU" style="color: grey;">First name:</p>
-              <p class="outName" id="outName">Javier</p>
-              <p class="LnameU" id="LnameU" style="color: grey;">Last name:</p>
-              <p class="outLast" id="outLast">Malandro</p>
-            </div>
-            <div class="dniTelU" id="dniTelU">
-              <p class="dniU" id="dniU" style="color: grey;">D.N.I:</p>
-              <p class="outDni" id="outDni">23123445T</p>
-              <p class="telU" id="telU" style="color: grey;">Telefono:</p>
-              <p class="outTel" id="outTel">765398275</p>
-            </div>
-            <div class="emailOU" id="emailOU">
-              <p class="emailU" id="emailU" style="color: grey;">Email adress:</p>
-              <p class="outEmail" id="outEmail">malandro@gmail.com</p>
-            </div>
-            <input class="botonU" id="botonU" type="button" value="Pide tu CUBER" />
-          </div>
-          <div class="rutasHistorialBox" id="rutasHistorialBox">
-            <h1 class="historialTexU" id="historialTexU">Historial:</h1>
-            <div class="contHisto" id="contHisto">
-              <div class="contHistoText" id="contHistoText">
-                <div class="contFechaText" id="contFechaText">
-                  <p class="fechaH" id="fechaH">fecha:</p>
-                  <output class="fechaOu" id="fechaOu">12/02/21</output>
-                </div>
-                <div class="salidLlegada" id="salidLlegada">
-                  <p class="salidaH" id="salidaH" style="color: red;">Salida:</p>
-                  <output class="salidaO" id="salidaO">Estais de las Arts</output>
-                  <p class="llegadaH" id="llegadaH" style="color: red;">LLegada:</p>
-                  <output class="llegadaHO" id="llegadaHO">Camp Barca</output>
-                </div>
-                <div class="horas" id="horas">
-                  <p class="oraH" id="oraH" style="color: red;">Hora:</p>
-                  <output class="oraO" id="oraO">19:30h</output>
-                  <p class="oraHS" id="oraHS" style="color: red;">Hora:</p>
-                  <output class="oraSO" id="oraSO">20:13h</output>
-                </div>
-                <div class="precioHis" id="precioHis">
-                  <p class="precioH" id="precioH" style="color: grey;">Precio:</p>
-                  <output class="precioHO" id="precioHO">20€</output>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section><img class="map1" id="map1" src="barcelona.png" />
-    </section>
-    <p class="outEmail" id="outEmail">En <span style="color: red;">10min</span>  estaremos recogiendole</p>
-  
-  </body>
+  <link rel="stylesheet" href="style1.css" />
+  <title>Pug </title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+</head>
+
+
+<body>
+  <div id="imprimir">
+    <div class="contenedorPdfCabe">
+      <img class="logoPdf" src="logo.png">
+      <h1 class="TesxtoCabePdf" style="color: black;">
+        CUBER
+        <p class="parraPdf">
+          You are ready?
+        </p>
+      </h1>
+    </div>
+    <div class="contenedorPdfbody">
+      <h1 class="TesxtoBodyPdf" style="color: black;">
+        Nombre:
+        <p class="parraPdfBody">
+          !{nombre}
+        </p>
+      </h1>
+      <h1 class="TesxtoBodyPdf" style="color: black;">
+        Apellido:
+        <p class="parraPdfBody">
+          !{apellidos}
+        </p>
+      </h1>
+    </div>
+    <div class="contenedorPdfTrak">
+      <h1 class="TesxtoBodyPdfTrak" style="color: black;">
+        Nº de trayecto:
+        <p id="outTra" class="parraPdfBody">
+
+        </p>
+      </h1>
+    </div>
+  </div>
+
+<button class="botonF" id="botonF" onclick='pruebaDivAPdf()'>Generar Factura</button>
+
+
+
+
+
+
+
+  <input type="button" value="Click me" onclick="generarPdf()" />
+  <script src="./frontCancelar.js"></script>
+</body>
+
 
 </html>
