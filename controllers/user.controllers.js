@@ -287,112 +287,24 @@ const user = {
 
   },
   logHome: (req, res) => {
-    console.log("hola");
-    loginEmail = req.body.userLog;
-    let selectQuery = "SELECT dni FROM ?? WHERE ?? = ?";
-    let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
-    console.log("selectQuery" + selectQuery);
-    console.log("query3" + query3);
-    connection.query(selectQuery, (err, data) => {
-      if (err) throw err;
-      console.log(data);
-      //connection.end();
-    });
+    res.render("indexLog");
+    // console.log("hola");
+    // loginEmail = req.body.userLog;
+    // let selectQuery = "SELECT dni FROM ?? WHERE ?? = ?";
+    // let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
+    // console.log("selectQuery" + selectQuery);
+    // console.log("query3" + query3);
+    // connection.query(selectQuery, (err, data) => {
+    //   if (err) throw err;
+    //   console.log(data);
+    //   //connection.end();
+    // });
   },
 }
 //   record: (req, res) => {
 
     
-// // Create a document
-// const doc = new PDFDocument();
-
-// // pipe the document to a blob
-// const stream = doc.pipe(blobStream());
-
-
-// // draw some text
-// doc.fontSize(25).text('Here is some vector graphics...', 100, 80);
-
-// // some vector graphics
-// doc
-//   .save()
-//   .moveTo(100, 150)
-//   .lineTo(100, 250)
-//   .lineTo(200, 250)
-//   .fill('#FF3300');
-
-// doc.circle(280, 200, 50).fill('#6600FF');
-
-// // an SVG path
-// doc
-//   .scale(0.6)
-//   .translate(470, 130)
-//   .path('M 250,75 L 323,301 131,161 369,161 177,301 z')
-//   .fill('red', 'even-odd')
-//   .restore();
-
-// // and some justified text wrapped into columns
-// doc
-//   .text('And here is some wrapped text...', 100, 300)
-//   .font('Times-Roman', 13)
-//   .moveDown()
-//   .text('Mierda', {
-//     width: 412,
-//     align: 'justify',
-//     indent: 30,
-//     columns: 2,
-//     height: 300,
-//     ellipsis: true
-//   });
-
-// // end and display the document in the iframe to the right
-// doc.end();
-// stream.on('finish', function() {
-//   iframe.src = stream.toBlobURL('application/pdf');
-// });
-
-  
-
-
-
-
-
-    // console.log(hora);
-    // console.log(recogida);
-
-    // function crearPdf(dataCallback, endCallback) {
-    //   //let date = new Date();
-    //   //console.log(date.toLocaleDateString());
-    //   let fecha = "19/06/2022" //date.toLocaleDateString();
-    //   let hora = "20:30" //date.toLocaleTimeString();
-    //   let precio = "20€";
-
-    //   const document = new PDFDocument({ size: "A4" });
-    //   doc.on("data", dataCallback);
-    //   doc.on("end", endCallback);
-    //   doc.image('./views/css/logo.png', 430, 15, {
-    //     fit: [100, 100],
-    //     align: "center",
-    //     valign: "center"
-    //   });
-    //   doc.fontSize(20).fillColor('blue').text(`Fecha: ${fecha}`, {
-    //     align: 'center',
-    //   });
-
-    //   doc.moveDown();
-    //   doc.fontSize(12).fillcolor("black").text(`Hora: ${hora}`, {
-    //     aling: 'center',
-    //   });
-
-    //   doc.moveDown();
-    //   doc.fontSize(14).fillColor('red').text(`Precio: ${precio}`, {
-    //     align: 'center',
-    //   });
-
-    //   doc.moveDown();
-
-    //   doc.end();
-
+// // Create a do
     // }
 
     // crearPdf();
