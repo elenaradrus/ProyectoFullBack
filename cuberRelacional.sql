@@ -74,6 +74,9 @@ contrasena VARCHAR(300) NOT NULL,
 PRIMARY KEY(id)
 );    
 
+INSERT INTO Administrador VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "Admin123*");
+
+select * from Administrador;
 
 CREATE TABLE Administrador_Pedidos(
 id INT AUTO_INCREMENT,

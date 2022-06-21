@@ -129,8 +129,22 @@ const user = {
   },
   updateUser: (req, res) => { },
   login: (req, res) => {
+
+    /**
+     * Guardamos en variables los inputs del login
+     */
+
     loginEmail = req.body.userLog;
     passLog = req.body.passLog;
+
+    /**
+     * Comparamos las variables con el email y contraseña del administrador para que pueda modificar.
+     */
+
+    if(loginEmail == "admin@admin.com" && passLog == "Admin123*") {
+      res.render("admin");
+    }
+
     /**
      * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
      * para poder logearse.
@@ -278,10 +292,18 @@ const user = {
     });
 
   },
-
+  
+  /**
+   * aqui renderizamos la vista de Ucuber 
+   */
   uCuber1: (req, res) => {
     res.render("uCuber");
   },
+  /**
+   * aqui renderizamos la vista de verCoche , generamos aleatoriamente un numero de 1 a 10 
+   * entre los conductores que tenemos en plantilla por su id, una vez tengamos el numero buscamos
+   * ese id en la base de datos para pintar el conductor que va a realizar el viaje
+   */
   verCoche: (req, res) => {
 
     const data = Math.round(Math.random() * 10);
@@ -297,12 +319,15 @@ const user = {
       console.log(carName);
       console.log(carNum);
       console.log(carTelf);
-      res.render("verCoche" ,{carName,carNum,carTelf});
+      res.render("verCoche", { carName, carNum, carTelf });
       //connection.end();
     });
-    
+
 
   },
+  /**
+   * aqui renderizamos la pagina de indexLog
+   */
   logHome: (req, res) => {
     res.render("indexLog");
     // console.log("hola");
@@ -317,18 +342,12 @@ const user = {
     //   //connection.end();
     // });
   },
-}
-//   record: (req, res) => {
+  logOut: (req, res) => {
+    //req.logout();
+    res.render('index');
+  }
 
-
-// // Create a do
-// }
-
-// crearPdf();
-
-// }
-
-
+};
 
 module.exports = user;
 

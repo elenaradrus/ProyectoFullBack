@@ -1,0 +1,30 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  form(action='/anadirCoche' method='post')
+    input(type='text' placeholder='añadirNombre' name='anadirNombre')
+    input(type='text' placeholder='añadirMatricula' name='anadirMatricula')
+    input(type='text' placeholder='añadirTelefono' name='anadirTelefono')
+    button(type='submit' id='añadir' name='añadirCoche') Añadir licencia
+  form(action='/borrarCoche' method='post')
+    input(type='text' placeholder='añadirMatricula' name='borrarCoche')
+    button(type='submit' id='añadir' name='borrarCoche') Borrar licencia
+  form(action='/actualizar' method='post')
+    .contenedorInput 
+      .contenedorInput1
+        input(type='text' placeholder='Nombre del conductor' name='nombreExistente')
+        input(type='text' placeholder='Nuevo nombre del conductor' name='nombreNuevo')
+      .contenedorInput2
+        input(type='text' placeholder='telefono del conductor' name='telefonoExistente')
+        input(type='text' placeholder='Nuevo telefono del conductor' name='telefonoNuevo')
+      .contenedorInput2
+        input(type='text' placeholder=' matricula del conductor' name='matriculaExistente')
+        input(type='text' placeholder='Nueva matricula del conductor' name='matriculaNueva')
+        button(type='submit' id='añadir' name='actualizar') Actualizar licencia  
+  form(action='/borrarUsuario' method='post')
+    input(type='text' placeholder='borrarUser' name='borrarUser')
+    button(type='submit' id='añadir' name='borrarUser') borrar usuario
+

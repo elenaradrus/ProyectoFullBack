@@ -15,8 +15,9 @@ body
      div.login
         p.busqueda Nº de trayecto 
         div.barra
-           input.search(type='text' placeholder='🔍 search')
-           input#logout.log(type='submit' value='Log out')
+          form(action="/logOut", method="post") 
+            input.search(type='text' placeholder='🔍 search')
+            input.log(type='submit' value='Log out')
   section.textCentral
       h1.travel
         | Travel with us

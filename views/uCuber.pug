@@ -10,11 +10,12 @@ body
      form(action="/logHome", method="post")  
       input.home(type='submit' value='Home')
       input.uCuber(type='submit' value='U CUBER')
-      div.login
-        p.busqueda Nº de trayecto 
-        div.barra
-           input.search(type='text' placeholder='🔍 search')
-           input#logout.log(type='submit' value='Log out')
+    div.login
+      p.busqueda Nº de trayecto 
+      div.barra
+        form(action="/logOut", method="post")
+          input.search(type='text' placeholder='🔍 search')
+          input#logout.log(type='submit' value='Log out')
   section#boxUtotal.boxUtotal
       section#uBox.uBox
         #uCuberH.uCuberH

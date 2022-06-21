@@ -1,7 +1,9 @@
 
 //const user = require('controllers/user.controllers');
 
-
+/**
+ * Hacemos dos test para comprobar el formato que admitimos en el registro con expresiones regulares
+ */
 const user = {
     responseOK: 'Response OK',
     responseFAIL: 'Response FAIL',
