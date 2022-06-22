@@ -17,7 +17,8 @@ body
         div.barra1
            input#search.search(type='search' placeholder='search')
            input#search2.search1(type='button' value='🔍')
-           input#logout.log2(type='submit' value='Log out')
+           form(action="/logOut", method="post") 
+            input#logout.log2(type='submit' value='Log out')
   section.textCentral
       h1.travel
         | Travel with us
