@@ -126,6 +126,15 @@ const user = {
   login: (req, res) => {
     loginEmail = req.body.userLog;
     passLog = req.body.passLog;
+
+
+
+
+    if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
+      res.render("admin");
+    }
+
+    
     /**
      * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
      * para poder logearse.
@@ -301,6 +310,8 @@ const user = {
       Hora: req.body.hora,
       Precio: "20€",
       Dni: req.body.dni,
+      latitud: req.body.latitud,
+      longitud: req.body.longitud,
     }
     /**
     * Insertar dentro de una coleccion de una BD
@@ -320,9 +331,9 @@ const user = {
     });
 
   },
-   /**
- * Buscamos por DNI dentro de la base de datos de compas y lo pintamos en el PDF
- */
+  /**
+* Buscamos por DNI dentro de la base de datos de compas y lo pintamos en el PDF
+*/
   genFactura: (req, res) => {
     setTimeout(() => {
       try {
@@ -379,13 +390,71 @@ const user = {
     }, 1000);
 
 
-  }
+  },
 
-}
+  search: (req, res) => {
+    try {
+      MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        const mydb = "Cuber";
+        const collection = "Historial_Usuario";
+        var dbo = db.db(mydb);
+        dbo
+          .collection(collection)
+          .find({})
+          .limit(1)
+          .sort({ $natural: -1 })
+          .toArray(function (err, result) {
+            if (err) throw err;
+            console.log(result)
+
+            MongoClient.connect(url, function (err, db) {
+              if (err) throw err;
+              const mydb = "Cuber";
+              const collection = "Historial_Usuario";
+              var dbo = db.db(mydb);
+              var query = { 'numeroDeTrayecto': req.body.userInput };
+              dbo
+                .collection(collection)
+                .find(query)
+                .toArray(function (err, result) {
+                  if (err) throw err;
+                  console.log(result);
+
+
+                  // let obj = { dni: req.body.dni }
+
+                  // res.render("index", {
+                  //   dni: [obj]
+                  // });
+                  // console.log(result[0].latitud)
+                  let obj = { latidtud: result[0].latitud, longitud: result[0].longitud }
+                  console.log(obj)
+                  res.render("index", {
+                    latLong: [obj]
+                    // usuarioRegistrado: "Usuario registrado correctamente",
+                  });
+                  db.close();
+                  })
+                })
+
+
+            });
+          });
+      }
+    catch (error) {
+        console.log(error)
+      }
+    },
+    logOut: (req, res) => {
+      res.render('index');
+    }
 
 
 
+};
 
 
-module.exports = user;
+
+  module.exports = user;
 

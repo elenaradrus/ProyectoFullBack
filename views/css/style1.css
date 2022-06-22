@@ -62,8 +62,26 @@ body {
 .busqueda {
     color: #C3C3C3;
     position: relative;
-    bottom: 44px;
-    left: 1151px;
+    bottom: 61px;
+    left: 405px;
+}
+.busqueda1 {
+    color: #C3C3C3;
+    position: relative; 
+    bottom: 45px;
+    left: 1314px;
+}
+.busqueda2 {
+    color: #C3C3C3;
+    position: relative;
+    bottom: -3px;
+    left: 1030px;
+}
+.busqueda3 {
+    color: #C3C3C3;
+    position: relative;
+    bottom: 42px;
+    left: 1273px;
 }
 
 .login {
@@ -83,7 +101,20 @@ body {
     position: absolute;
     width: 167px;
     height: 40px;
-    right: 40px;
+    right: 83px;
+    top: calc(50% - 40px/2 + 0.5px);
+}
+.barra1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 225px;
+    height: 40px;
+    right: 9px;
     top: calc(50% - 40px/2 + 0.5px);
 }
 
@@ -128,6 +159,39 @@ body {
     flex: none;
     order: 2;
     flex-grow: 0;
+
+}
+.log1 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    left: 102px;
+
+}
+.log2 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    left: -6px;
+
+}
+.log3 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    left: 106px;
 
 }
 
@@ -345,33 +409,117 @@ body {
     font-size: 13px;
 }
 .contHistoText1{
+    display: flex;
     box-sizing: border-box;
     position: absolute;
-    width: 551px;
-    height: 113px;
+    width: 856px;
+    height: 146px;
     left: 19px;
-    top: 183px;
+    top: 28px;
     background: #FFFFFF;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 37px;
     font-size: 13px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
+
+
 .contHistoText2{
+    display: flex;
     box-sizing: border-box;
     position: absolute;
-    width: 551px;
-    height: 113px;
+    width: 856px;
+    height: 68px;
     left: 19px;
-    top: 305px;
+    top: 208px;
     background: #FFFFFF;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 37px;
     font-size: 13px;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.contHistoText3{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 146px;
+    left: 19px;
+    top: 332px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
+.contHistoText4{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 61px;
+    left: 19px;
+    top: 516px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border : 1px solid #E7E7E7;
+    
+}
+
+.btn1{
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border: none;
+}
+.btn2{
+    position: relative;
+    right: 243px;
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border: none;
+}
+
+
+.lastForm{
+    margin-top: 10px;
+}
+
+.contenedorInput{
+    display: flex;
+    position: relative;
+    left: 78px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+}
 
 .contFechaText{
     display: flex;

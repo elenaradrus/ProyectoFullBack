@@ -2,7 +2,7 @@
 head
   link(rel='stylesheet',  href="/style.css")
   link(rel='stylesheet',  href="/style1.css")
-  title Pug  
+  title Home 
   link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
   link(rel='stylesheet' href='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css')
 body  
@@ -13,10 +13,12 @@ body
      form(action="/uCuber1", method="post") 
       input.uCuber(type='submit' value='U CUBER')
      div.login
-        p.busqueda Nº de trayecto 
-        div.barra
-           input.search(type='text' placeholder='🔍 search')
-           input#logout.log(type='submit' value='Log out')
+        p.busqueda2 Nº de trayecto 
+        div.barra1
+           input#search.search(type='search' placeholder='search')
+           input#search2.search1(type='button' value='🔍')
+           input#logout.log2(type='submit' value='Log out')
+
   section.textCentral
       h1.travel
         | Travel with us
@@ -38,6 +40,21 @@ body
         |             Barcelona!
         br
         |             Pronto estaremos en tu ciudad
+  section#maxBoxPedir2.maxBoxPedir2
+      img.logoPedir(src='logo.png' alt='')
+      .mediumBoxPedir
+        .mediumBoxPedirText
+          h1.selectTouText
+            | Pronto estermos en el punto de recogida
+          p#livingTouText2.livingTouText
+            | and start living
+        #minBoxPedir2.minBoxPedir
+          #puntosBoxText2.puntosBoxText
+            h2#calleMap2.calleMap
+            #mapaRutaIn2.mapaRutaIn
+              #map2.map(style='width:100%; height:50vh; postion: relative; top: 56px')
+            //- #map(style='width:100%; height: 100vh')  
+                  
   section#maxBoxPedir.maxBoxPedir
       img#logoPedir.logoPedir(src='logo.png' alt='')
       #mediumBoxPedir.mediumBoxPedir

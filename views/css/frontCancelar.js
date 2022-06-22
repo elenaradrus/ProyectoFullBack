@@ -71,12 +71,20 @@ navigator.geolocation.getCurrentPosition(function (position) {
     // Obtener DNI
     let firstName = localStorage.getItem('Dni');
 
+
+    //
+
+
+
+
     const infoHistorial = {
       fecha: fecha,
       hora: hora,
       direccion: direccion,
       traking: traking,
-      dni: firstName
+      dni: firstName,
+      latitud: latCuber,
+      longitud: lngCuber
 
     }
  // Enviar a la base de datos nada mas cargar la pagina
