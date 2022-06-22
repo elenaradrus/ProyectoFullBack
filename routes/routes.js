@@ -16,8 +16,11 @@ router.get("/",pages.home);
 router.post("/registro",user.saveDataForm);
 router.post("/login", user.login);
 router.post("/logHome", user.logHome);
-// router.post("/record", user.record);
 router.post("/uCuber1", user.uCuber1);
+router.post("/factura", user.factura);
+router.post("/search", user.search);
+router.post("/genFactura", user.genFactura);
+// router.get("/get-factura/:id", user.factura);
 router.post("/verCoche", user.verCoche);
 router.post("/registeruser",user.registerUser);
 router.post('/logOut', user.logOut);
@@ -28,7 +31,5 @@ router.post("/actualizar", admin.actualizarDatos);
 
 
 
-
- 
 
 module.exports = router;

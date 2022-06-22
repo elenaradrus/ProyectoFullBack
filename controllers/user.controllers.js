@@ -1,5 +1,8 @@
 /**
  * @author Julian Osorio
+ * @author Javier García-Rojo
+ * @author Alberto Lara
+ * @author Elena Radu
  */
 
 /**
@@ -7,21 +10,23 @@
  */
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
-const url = "mongodb://localhost:27017/";
+const url = "mongodb://127.0.0.1:27017/";
 const mongoose = require("mongoose");
 const UserModel = require("../models/userModels");
 
-
 const PDFDocument = require('pdfkit');
-const blobStream = require('blob-stream');
-
-const fs = require('fs');
-const doc = new PDFDocument();
 
 const connection = require("../database/sqlDataBase");
 const mysql = require("mysql");
 const { propfind } = require("moongose/routes");
 const bcrypt = require("bcrypt");
+
+
+
+
+
+
+
 
 /**
  * Creamos una constante que guarda los valores de los inputs en una funcion
@@ -65,11 +70,11 @@ const user = {
       const mydb = "Cuber";
       const collection = "Historial_Usuario";
       const myobj = {
-        Fecha: "18-06-202",
-        Recogida: "camp Nou",
-        numeroDeTrayecto: "6068716051",
-        Hora: "16:00",
-        Precio: "20€",
+        Fecha: "No hay trayecto",
+        Recogida: "No hay trayecto",
+        numeroDeTrayecto: "No hay trayecto",
+        Hora: "No hay trayecto",
+        Precio: "No hay trayecto",
         Dni: req.body.dni,
       };
       MongoClient.connect(url, function (err, db) {
@@ -97,6 +102,8 @@ const user = {
        (
            ?, ?, ?, ?, ?, ?
        )`;
+
+
           let query = mysql.format(insertQuery, [
             nombre,
             apellidos,
@@ -110,8 +117,13 @@ const user = {
             console.log(data);
           });
         }
+
       });
-      res.render("index");
+     let obj = { dni: req.body.dni }
+
+      res.render("index", {
+        dni: [obj]
+        // usuarioRegistrado: "Usuario registrado correctamente",
     }
     /**
      * Una vez esta registrado, volvemos a el index, y el usuario tiene que volver a logearse.
@@ -130,13 +142,16 @@ const user = {
     loginEmail = req.body.userLog;
     passLog = req.body.passLog;
 
+
     /**
      * Comparamos las variables con el email y contraseña del administrador para que pueda modificar.
      */
 
+
     if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
       res.render("admin");
     }
+
 
     /**
      * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
@@ -274,7 +289,7 @@ const user = {
                     precio,
                   });
                 }
-                db.close();
+                // db.close();
               });
           });
         } else {
@@ -289,6 +304,8 @@ const user = {
    * aqui renderizamos la vista de Ucuber 
    */
   uCuber1: (req, res) => {
+
+
     res.render("uCuber");
   },
   /**
@@ -298,7 +315,9 @@ const user = {
    */
   verCoche: (req, res) => {
 
-    const data = Math.round(Math.random() * 10);
+    console.log('first')
+
+const data = Math.round(Math.random() * 10);
     console.log(data);
 
     let query = `SELECT * from Coches WHERE id = ${data}`;
@@ -315,6 +334,98 @@ const user = {
       //connection.end();
     });
 
+  },
+  
+  /**
+ * Aqui creamos una funcion que nos permitira crear un usuario en la base de datos de mongo
+ */
+  factura: async (req, res) => {
+    const myobj = {
+
+      Fecha: req.body.fecha,
+      Recogida: req.body.direccion,
+      numeroDeTrayecto: req.body.traking,
+      Hora: req.body.hora,
+      Precio: "20€",
+      Dni: req.body.dni,
+      latitud: req.body.latitud,
+      longitud: req.body.longitud,
+    }
+    /**
+    * Insertar dentro de una coleccion de una BD
+    */
+
+    MongoClient.connect(url, function (err, db) {
+      if (err) throw err;
+      const mydb = "Cuber";
+      const collection = "Historial_Usuario";
+      var dbo = db.db(mydb);
+
+      dbo.collection(collection).insertOne(myobj, function (err, res) {
+        if (err) throw err;
+        console.log("Documento insertado");
+        db.close();
+      });
+    });
+
+  },
+  /**
+* Buscamos por DNI dentro de la base de datos de compas y lo pintamos en el PDF
+*/
+  genFactura: (req, res) => {
+    setTimeout(() => {
+      try {
+        MongoClient.connect(url, function (err, db) {
+          if (err) throw err;
+          const mydb = "Cuber";
+          const collection = "Historial_Usuario";
+          var dbo = db.db(mydb);
+          dbo
+            .collection(collection)
+            .find({})
+            .limit(1)
+            .sort({ $natural: -1 })
+            .toArray(function (err, result) {
+              if (err) throw err;
+
+
+
+              const doc = new PDFDocument({ bufferPages: true });
+              const filename = `Factura${Date.now()}.pdf`;
+
+              const stream = res.writeHead(200, {
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `attachment;filename="${filename}`
+              });
+              doc.on('data', (data) => { stream.write(data) });
+              doc.on('end', () => { stream.end() });
+
+              doc.image('views/css/logo.png', 360, 20, { width: 150 });
+
+              doc.text('Factura CUBER', 30, 70);
+              doc.text('Fecha de servicio:   ' + result[0].Fecha, 30, 170);
+              doc.text('Hora de servicio:   ' + result[0].Hora, 30, 195);
+              doc.text('Recogida en:   ' + result[0].Recogida, 30, 220);
+              doc.text('Nº de trayecto:   ' + result[0].numeroDeTrayecto, 30, 245);
+              doc.text('Precio del servicio:   ' + result[0].Precio, 30, 270);
+              doc.text('Forma de pago:  Tarjeta de credito', 30, 370);
+
+
+
+              doc.end();
+              db.close();
+            });
+        });
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }, 1000);
+
+
+  },
+
+
 
   },
   /**
@@ -322,13 +433,68 @@ const user = {
    */
   logHome: (req, res) => {
     res.render("indexLog");
+  }, 
 
-  },
-  logOut: (req, res) => {
-    res.render('index');
-  }
+  search: (req, res) => {
+    try {
+      MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        const mydb = "Cuber";
+        const collection = "Historial_Usuario";
+        var dbo = db.db(mydb);
+        dbo
+          .collection(collection)
+          .find({})
+          .limit(1)
+          .sort({ $natural: -1 })
+          .toArray(function (err, result) {
+            if (err) throw err;
+            console.log(result)
+
+            MongoClient.connect(url, function (err, db) {
+              if (err) throw err;
+              const mydb = "Cuber";
+              const collection = "Historial_Usuario";
+              var dbo = db.db(mydb);
+              var query = { 'numeroDeTrayecto': req.body.userInput };
+              dbo
+                .collection(collection)
+                .find(query)
+                .toArray(function (err, result) {
+                  if (err) throw err;
+                  console.log(result);
+
+
+                  // let obj = { dni: req.body.dni }
+
+                  // res.render("index", {
+                  //   dni: [obj]
+                  // });
+                  // console.log(result[0].latitud)
+                  let obj = { latidtud: result[0].latitud, longitud: result[0].longitud }
+                  console.log(obj)
+                  res.render("index", {
+                    latLong: [obj]
+                    // usuarioRegistrado: "Usuario registrado correctamente",
+                  });
+                  db.close();
+                  })
+                })
+
+
+            });
+          });
+      }
+    catch (error) {
+        console.log(error)
+      }
+    },
+    logOut: (req, res) => {
+      res.render('index');
+    }
 
 };
 
-module.exports = user;
+
+  module.exports = user;
 

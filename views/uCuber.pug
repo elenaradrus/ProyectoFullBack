@@ -1,6 +1,6 @@
 head
   link(rel='stylesheet' href='style1.css')
-  title Pug  
+  title UCuber  
   link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
   link(rel='stylesheet' href='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
@@ -10,12 +10,10 @@ body
      form(action="/logHome", method="post")  
       input.home(type='submit' value='Home')
       input.uCuber(type='submit' value='U CUBER')
-    div.login
-      p.busqueda Nº de trayecto 
-      div.barra
-        form(action="/logOut", method="post")
-          input.search(type='text' placeholder='🔍 search')
-          input#logout.log(type='submit' value='Log out')
+      div.login
+        p.busqueda1 Nº de trayecto 
+        div.barra
+           input#logout.log1(type='submit' value='Log out')
   section#boxUtotal.boxUtotal
       section#uBox.uBox
         #uCuberH.uCuberH
@@ -36,6 +34,7 @@ body
               p#dniU.dniU(style='color: grey;')
                 | D.N.I:
               p#outDni.outDni !{logDni}
+              //- input(type='hidden' value= #{logDni} name='DniLog')
               p#telU.telU(style='color: grey;')
                 | Telefono:
               p#outTel.outTel !{logTelefono}
@@ -147,7 +146,7 @@ body
                 |                             Solo pagos con Tarjeta.
         form(action="/verCoche", method="post")         
           #botonpagar.botonpagar
-            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber')
+            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber' src='/views/verCoche.pug')
 
   
   script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')

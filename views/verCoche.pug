@@ -1,10 +1,11 @@
 html
   head
     link(rel='stylesheet' href='style1.css')
-    title Pug 
+    title Pedido 
     link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
     link(rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js' integrity='sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/' crossorigin='anonymous')
   body
     nav.nav
       section.textNa
@@ -13,12 +14,12 @@ html
         form(action="/uCuber1", method="post") 
           input.uCuber(type='submit' value='U CUBER')
           .login
-            p.busqueda Nº de trayecto 
+            p.busqueda3 Nº de trayecto 
             .barra
-              input.search(type='text' placeholder='🔍 search')
-              input#logout.log(type='submit' value='Log out')
+              input#logout.log3(type='submit' value='Log out')
+              
     section#boxUtotal.boxUtotal
-      section#uBox.uBox
+      section#uBox.uBox  
         #uCuberC.uCuberC
           #upersonalBox.upersonalBox
             #cabeceraC.cabeceraC
@@ -36,7 +37,6 @@ html
             #dniTelU.dniTelU1
               p#dniU.dniU(style='color: grey;') Nº de trayecto:
               p#outTra.outDni(name='trakNum')
-              
             #dniTelU1.dniTelU
               p#dniU1.dniU(style='color: grey;') Fecha:
               p#outTra1.outDni(name='trakFecha')
@@ -51,9 +51,13 @@ html
                 | En 
                 span(style='color: red;') 10min
                 |   estaremos recogiendole
-            input#botonC.botonC(type='button' value='Cancela tu CUBER')
-            input#botonF.botonF(type='button' value='Generar Factura')
-      #map(style='width:739px; height:1018; postion: relative; top: 0px; left: 721px')
+            form(action="/genFactura", method="post")
+              input#botonC.botonC(type='button' value='Cancela tu CUBER')
+              //- input#botonF.botonF(type='submit' value='Generar Factura')
+              input#botonFV.botonF(type='submit' value='Ir a factura')
+              //- a#botonFV.botonF(href='/get-factura/{{this.id}}') Generar Factura
+      #map(style='width:877px; height:1018; postion: relative; top: 0px; left: 721px')
+      
     script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
     script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
     script(type='module' src='frontCancelar.js')

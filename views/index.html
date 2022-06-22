@@ -4,54 +4,19 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 </head>
+<script>
+  var varPug = !{logDni}
+  if (varPug) {
+    console.log('existe')
+  }console.log('no existe')
+    
 
+</script>
 
 <body>
-  <div id="imprimir">
-    <div class="contenedorPdfCabe">
-      <img class="logoPdf" src="logo.png">
-      <h1 class="TesxtoCabePdf" style="color: black;">
-        CUBER
-        <p class="parraPdf">
-          You are ready?
-        </p>
-      </h1>
-    </div>
-    <div class="contenedorPdfbody">
-      <h1 class="TesxtoBodyPdf" style="color: black;">
-        Nombre:
-        <p class="parraPdfBody">
-          !{nombre}
-        </p>
-      </h1>
-      <h1 class="TesxtoBodyPdf" style="color: black;">
-        Apellido:
-        <p class="parraPdfBody">
-          !{apellidos}
-        </p>
-      </h1>
-    </div>
-    <div class="contenedorPdfTrak">
-      <h1 class="TesxtoBodyPdfTrak" style="color: black;">
-        Nº de trayecto:
-        <p id="outTra" class="parraPdfBody">
-
-        </p>
-      </h1>
-    </div>
-  </div>
-
-<button class="botonF" id="botonF" onclick='pruebaDivAPdf()'>Generar Factura</button>
-
-
-
-
-
-
-
-  <input type="button" value="Click me" onclick="generarPdf()" />
-  <script src="./frontCancelar.js"></script>
+  <input class="search" id="search1" type="button" value="Buscar">
 </body>
+
 
 
 </html>

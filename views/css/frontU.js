@@ -1,35 +1,9 @@
 
 
+ /**
+ * Integración de Mapas
+ */
 
-//                     OSM  LAYER               
-
-//TODO       BUsqueda de direccion por input (PROBLEMA!!!! NO CONSEGUIMOS EXPORTAR LA LONG Y LAT)
-// var map = L.map('map').setView([41.390205, 2.154007], 12);
-// var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-// });
-// osm.addTo(map);
-
-
-// // MARKER               
-// // googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-// //     maxZoom: 20,
-// //     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-// // });
-// // googleStreets.addTo(map);
-// // console.log(googleStreets)
-
-// // SEARCH BUTTON               
-// L.Control.geocoder().addTo(map);
-
-// console.log(map._layers)
-// console.log(map)
-// // console.log(map[_popup])
-// console.log(map["_popup"])
-//TODO      FINAL       BUsqueda de direccion por input (PROBLEMA!!!! NO CONSEGUIMOS EXPORTAR LA LONG Y LAT)
-
-
-//TODO                           Comienzo integracion de mapa y posicion
 
 // Acceder a la ubicacion del usuario
 navigator.geolocation.getCurrentPosition(function(position){
@@ -41,9 +15,7 @@ navigator.geolocation.getCurrentPosition(function(position){
     var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });osm.addTo(map);
-//   mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
-//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Leaflet &copy; ' + mapLink + ', contribution', maxZoom: 18 }).addTo(map);
-  
+
   // marcador de coche
   var taxiIcon = L.icon({
   iconUrl: 'pngegg.png',
@@ -61,7 +33,8 @@ navigator.geolocation.getCurrentPosition(function(position){
   waypoints: [
   L.latLng(41.390205, 2.154007),
   L.latLng(e.latlng.lat, e.latlng.lng)
-  ]
+  ],
+  
   }).on('routesfound', function (e) {
   var routes = e.routes;
   console.log(routes);
@@ -69,26 +42,6 @@ navigator.geolocation.getCurrentPosition(function(position){
   console.log(routes[0].inputWaypoints[1].latLng);
   localStorage.setItem('latitud', routes[0].inputWaypoints[1].latLng.lat)
   localStorage.setItem('longitud', routes[0].inputWaypoints[1].latLng.lng)
-//   export.module =routes
-
-// Obtener fecha
-let date = new Date();
-console.log(date.toLocaleDateString());
-
-// Obtener hora
-var currentTime = new Date();
-
-currentTime.toLocaleTimeString();
-console.log(currentTime.toLocaleTimeString());
-
-// Obtener dirección
-console.log(routes[0].name);
-
-// Obtener nºTrayecto
-console.log(uuid.v4());
-  
-
-
 
     // Obtener distancia
   e.routes[0].coordinates.forEach(function (coord, index) {
@@ -108,7 +61,11 @@ console.log(uuid.v4());
 
 
 
-//TODO                              Funciones de ocultar y ver
+
+ /**
+ *  funcion para mostrar el formulario de pedir coche
+ */
+
 
 
   document.getElementById('botonU').addEventListener('click', () =>{
