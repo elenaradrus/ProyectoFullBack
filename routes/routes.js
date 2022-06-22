@@ -18,6 +18,7 @@ router.post("/login", user.login);
 router.post("/logHome", user.logHome);
 router.post("/uCuber1", user.uCuber1);
 router.post("/factura", user.factura);
+router.post("/genFactura", user.genFactura);
 // router.get("/get-factura/:id", user.factura);
 router.post("/verCoche", user.verCoche);
 router.post("/registeruser",user.registerUser);

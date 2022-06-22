@@ -4,11 +4,6 @@ head
   link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
   link(rel='stylesheet' href='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
-  script
-      | var species = !{logDni};
-      | var fields = [];
-      | for (var key in species) fields.push(key)
-      | console.log(fields)
 body  
   nav.nav
     section.textNa
@@ -152,7 +147,7 @@ body
                 |                             Solo pagos con Tarjeta.
         form(action="/verCoche", method="post")         
           #botonpagar.botonpagar
-            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber')
+            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber' src='/views/verCoche.pug')
 
   
   script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')

@@ -52,10 +52,10 @@ html
                 | En 
                 span(style='color: red;') 10min
                 |   estaremos recogiendole
-            form
+            form(action="/genFactura", method="post")
               input#botonC.botonC(type='button' value='Cancela tu CUBER')
               //- input#botonF.botonF(type='submit' value='Generar Factura')
-              input#botonFV.botonF(type='button' value='Generar Factura')
+              input#botonFV.botonF(type='submit' value='Ir a factura')
               //- a#botonFV.botonF(href='/get-factura/{{this.id}}') Generar Factura
       #map(style='width:877px; height:1018; postion: relative; top: 0px; left: 721px')
     script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')

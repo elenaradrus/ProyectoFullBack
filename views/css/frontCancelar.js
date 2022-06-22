@@ -1,8 +1,8 @@
 
-//TODO                               integracion de mapa y posicion
-//  import {ubi} from './frontU';
+ /**
+ * Integración de Mapas
+ */
 
-// console.log(ubi);
 
 let latCuber = localStorage.getItem('latitud')
 let lngCuber = localStorage.getItem('longitud')
@@ -79,12 +79,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
       dni: firstName
 
     }
- // Enviar mierda a la base de datos
- const todo = {
-  title: 'Some really important work to finish'
-};
-document.getElementById('botonFV').addEventListener('click',  () => {
-
+ // Enviar a la base de datos nada mas cargar la pagina
   fetch('http://localhost:3000/factura', {
   method: 'POST',
   headers: {
@@ -92,7 +87,7 @@ document.getElementById('botonFV').addEventListener('click',  () => {
   },
   body: JSON.stringify(infoHistorial),
 })
-})
+
 
 
     
@@ -101,7 +96,7 @@ document.getElementById('botonFV').addEventListener('click',  () => {
 
 
 
-
+  // Tiempo en el que se realiza el trayecto
     e.routes[0].coordinates.forEach(function (coord, index) {
       setTimeout(function () {
         marker.setLatLng([coord.lat, coord.lng]);

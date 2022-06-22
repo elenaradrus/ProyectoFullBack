@@ -1,5 +1,8 @@
 /**
  * @author Julian Osorio
+ * @author Javier García-Rojo
+ * @author Alberto Lara
+ * @author Elena Radu
  */
 
 /**
@@ -12,10 +15,6 @@ const mongoose = require("mongoose");
 const UserModel = require("../models/userModels");
 
 const PDFDocument = require('pdfkit');
-// const blobStream = require('blob-stream');
-
-// const fs = require('fs');
-// const doc = new PDFDocument();
 
 const connection = require("../database/sqlDataBase");
 const mysql = require("mysql");
@@ -50,19 +49,6 @@ const user = {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
     );
 
-    /*let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
-     //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
-     let query3 = mysql.format(selectQuery, ["Usuarios", "email", email, "dni", dni]);
-     console.log("selectQuery" + selectQuery)
-     console.log("query3" + query3)
-     connection.query (query3, async (err, data) => {
-       if (err) throw err; 
-       const emailRepetido = await data[0].email;
-       const dniRepetido = await data[0].dni;
-       if (email == emailRepetido || dni == dniRepetido) {
-         console.log("Usuario ya registrado");
-         await res.render("index", { usuarioRegistrado: "Usuario ya registrado" });
-       }*/
 
     /**
      * Aqui comprobamos si los datos que introduce el usuario son correctos o no
@@ -122,7 +108,7 @@ const user = {
         if (err) throw err;
         console.log(data);
       });
-      let obj = {dni: req.body.dni}
+      let obj = { dni: req.body.dni }
 
       res.render("index", {
         dni: [obj]
@@ -295,43 +281,51 @@ const user = {
   },
   verCoche: (req, res) => {
     console.log('first')
+
+
     res.render("verCoche");
 
   },
   logHome: (req, res) => {
     res.render("indexLog");
   },
-  factura: async(req, res) => {
-    // console.log('todo el JSON    ' + req.body)
-    // console.log('Fecha:     ' + req.body.fecha)
-    // console.log('Hora:     ' + req.body.hora)
-    console.log('Direccion:     ' + req.body.direccion)
-    // console.log('Trak:     ' + req.body.traking)
-    
-    const myobj={
-     
+  /**
+ * Aqui creamos una funcion que nos permitira crear un usuario en la base de datos de mongo
+ */
+  factura: async (req, res) => {
+    const myobj = {
+
       Fecha: req.body.fecha,
       Recogida: req.body.direccion,
       numeroDeTrayecto: req.body.traking,
-      Hora:   req.body.hora,
+      Hora: req.body.hora,
       Precio: "20€",
-      Dni:  req.body.dni,
+      Dni: req.body.dni,
     }
+    /**
+    * Insertar dentro de una coleccion de una BD
+    */
 
-    //Insertar dentro de una coleccion de una BD
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function (err, db) {
       if (err) throw err;
       const mydb = "Cuber";
       const collection = "Historial_Usuario";
       var dbo = db.db(mydb);
-      
-      dbo.collection(collection).insertOne(myobj, function(err, res) {
-          if (err) throw err;
-          console.log("Documento insertado");
-          db.close();
+
+      dbo.collection(collection).insertOne(myobj, function (err, res) {
+        if (err) throw err;
+        console.log("Documento insertado");
+        db.close();
       });
-      });
-      setTimeout(() => {
+    });
+
+  },
+   /**
+ * Buscamos por DNI dentro de la base de datos de compas y lo pintamos en el PDF
+ */
+  genFactura: (req, res) => {
+    setTimeout(() => {
+      try {
         MongoClient.connect(url, function (err, db) {
           if (err) throw err;
           const mydb = "Cuber";
@@ -341,44 +335,52 @@ const user = {
             .collection(collection)
             .find({})
             .limit(1)
-            .sort({$natural:-1})
-            .toArray(function(err, result) {
+            .sort({ $natural: -1 })
+            .toArray(function (err, result) {
               if (err) throw err;
-              console.log(result.Fecha);
 
-              // const doc = new PDFDocument({bufferPages: true});
 
-              // const filename = `Factura${Date.now()}.pdf`;
 
-              // const stream = res.writeHead(200, { 
-              //   'Content-Type': 'application/pdf',
-              //   'Content-Disposition': `attachment;filename="${filename}`
-              // });
-              // doc.on('data', (data) => {stream.write(data)});
-              // doc.on('end', () => {stream.end()});
-          
-          
-              // doc.text('Hello world!', 30, 70);
-          
-              
-          
-              // doc.end();
+              const doc = new PDFDocument({ bufferPages: true });
+              const filename = `Factura${Date.now()}.pdf`;
+
+              const stream = res.writeHead(200, {
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `attachment;filename="${filename}`
+              });
+              doc.on('data', (data) => { stream.write(data) });
+              doc.on('end', () => { stream.end() });
+
+              doc.image('views/css/logo.png', 360, 20, { width: 150 });
+
+              doc.text('Factura CUBER', 30, 70);
+              doc.text('Fecha de servicio:   ' + result[0].Fecha, 30, 170);
+              doc.text('Hora de servicio:   ' + result[0].Hora, 30, 195);
+              doc.text('Recogida en:   ' + result[0].Recogida, 30, 220);
+              doc.text('Nº de trayecto:   ' + result[0].numeroDeTrayecto, 30, 245);
+              doc.text('Precio del servicio:   ' + result[0].Precio, 30, 270);
+              doc.text('Forma de pago:  Tarjeta de credito', 30, 370);
+
+
+
+              doc.end();
+
 
 
 
 
               db.close();
-          });
-          });
-      }, 1000);
-      
-    
+            });
+        });
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }, 1000);
 
 
-    
-    
+  }
 
-  },
 }
 
 

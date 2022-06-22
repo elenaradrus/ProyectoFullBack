@@ -1,6 +1,7 @@
 
-
-// form inputs
+ /**
+ * Validacion de formulario de registro en frontend
+ */
 const formUser = document.querySelector('#name');
 const formLast = document.querySelector('#surname');
 const formDni = document.querySelector('#dni');
@@ -85,7 +86,9 @@ const checkPassFormat = (pass) => {
 
 
 
-  //ver y ocultar
+ /**
+ * Ocultar o mostrar el contenedor de registro
+ */
 document.getElementById('sing').addEventListener('click', () =>{
     mostrar(contenedorRegis)
     btnGr1(contLog)
@@ -100,7 +103,9 @@ document.getElementById('log').addEventListener('click', () =>{
 })
 
 
-
+ /**
+ * Funcion para ocultar el contenedor de registro y mostrar el contenedor de login
+ */
 
 function mostrar(id) {
     let test = document.getElementById('contenedorRegis');
