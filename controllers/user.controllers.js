@@ -330,20 +330,9 @@ const user = {
    */
   logHome: (req, res) => {
     res.render("indexLog");
-    // console.log("hola");
-    // loginEmail = req.body.userLog;
-    // let selectQuery = "SELECT dni FROM ?? WHERE ?? = ?";
-    // let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
-    // console.log("selectQuery" + selectQuery);
-    // console.log("query3" + query3);
-    // connection.query(selectQuery, (err, data) => {
-    //   if (err) throw err;
-    //   console.log(data);
-    //   //connection.end();
-    // });
+    
   },
   logOut: (req, res) => {
-    //req.logout();
     res.render('index');
   }
 

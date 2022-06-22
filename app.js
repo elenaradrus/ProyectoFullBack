@@ -1,4 +1,4 @@
-/* require('./database/mongo.cnx') */
+
 
 const express = require("express");
 const app = express();

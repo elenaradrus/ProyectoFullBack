@@ -47,7 +47,6 @@ const admin = {
     },
     borrarCoche: (req, res) => {
         borrarDato = req.body.borrarCoche;
-        //let deleteQuery = `DELETE FROM Coches WHERE matricula = ${borrarDato}`
         let deleteQuery = "DELETE from Coches where matricula = ?";
         let query5 = mysql.format(deleteQuery, borrarDato);
 
