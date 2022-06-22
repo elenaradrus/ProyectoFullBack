@@ -19,6 +19,7 @@ const PDFDocument = require('pdfkit');
 const connection = require("../database/sqlDataBase");
 const mysql = require("mysql");
 const { propfind } = require("moongose/routes");
+const bcrypt = require("bcrypt");
 
 
 
@@ -86,7 +87,14 @@ const user = {
           db.close();
         });
       });
-      let insertQuery = `INSERT INTO Usuarios
+
+      bcrypt.hash(contrasena, 10, (err, palabraSecretaEncriptada) => {
+        if (err) {
+          console.log("Error hasheando:", err);
+        } else {
+          console.log("Y hasheada es: " + palabraSecretaEncriptada);
+          palabraEncriptada = palabraSecretaEncriptada;
+          let insertQuery = `INSERT INTO Usuarios
        (
            nombre, apellido, dni ,email, telefono, contrasena
        )
@@ -95,25 +103,27 @@ const user = {
            ?, ?, ?, ?, ?, ?
        )`;
 
-      let query = mysql.format(insertQuery, [
-        nombre,
-        apellidos,
-        dni,
-        email,
-        telefono,
-        contrasena,
-      ]);
-      console.log(query);
-      connection.query(query, (err, data) => {
-        if (err) throw err;
-        console.log(data);
+
+          let query = mysql.format(insertQuery, [
+            nombre,
+            apellidos,
+            dni,
+            email,
+            telefono,
+            palabraEncriptada
+          ]);
+          connection.query(query, (err, data) => {
+            if (err) throw err;
+            console.log(data);
+          });
+        }
+
       });
-      let obj = { dni: req.body.dni }
+     let obj = { dni: req.body.dni }
 
       res.render("index", {
         dni: [obj]
         // usuarioRegistrado: "Usuario registrado correctamente",
-      });
     }
     /**
      * Una vez esta registrado, volvemos a el index, y el usuario tiene que volver a logearse.
@@ -124,33 +134,40 @@ const user = {
   },
   updateUser: (req, res) => { },
   login: (req, res) => {
+
+    /**
+     * Guardamos en variables los inputs del login
+     */
+
     loginEmail = req.body.userLog;
     passLog = req.body.passLog;
 
 
+    /**
+     * Comparamos las variables con el email y contraseña del administrador para que pueda modificar.
+     */
 
 
     if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
       res.render("admin");
     }
 
-    
+
     /**
      * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
      * para poder logearse.
      */
 
-    let nameCorrect = `SELECT email,contrasena FROM Usuarios`;
+    let nameCorrect = `SELECT email,contrasena FROM Usuarios where email = '${loginEmail}'`;
 
     connection.query(nameCorrect, (err, rows) => {
       if (err) throw err;
 
       console.log('Usuario: \n', rows);
-
-
-      for (let i = 0; i < rows.length; i++) {
-        if (rows[i].email == loginEmail && rows[i].contrasena == passLog) {
-          //res.render("uCuber")
+      bcrypt.compare(passLog, rows[0].contrasena).then(function (result) {
+        // result == true
+        if (result && rows[0].email == loginEmail) {
+          console.log("Usuario correcto");
           let selectQuery = "SELECT * FROM ?? WHERE ?? = ?";
           // //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
           let query3 = mysql.format(selectQuery, [
@@ -263,7 +280,7 @@ const user = {
                   numtrayeto = "No hay trayecto";
                   hora = "No hay trayecto";
                   precio = "No hay trayecto";
-                  // console.log('Error resultado1')
+                  console.log('Error resultado1')
                   res.render("uCuber", {
                     fecha,
                     recogida,
@@ -276,28 +293,49 @@ const user = {
               });
           });
         } else {
-          // res.render("index", {logError: "Usuario o contraseña incorrectos"})
+          console.log("contraseña incorrecta");
         }
-      }
+      });
     });
 
   },
 
+  /**
+   * aqui renderizamos la vista de Ucuber 
+   */
   uCuber1: (req, res) => {
 
 
     res.render("uCuber");
   },
+  /**
+   * aqui renderizamos la vista de verCoche , generamos aleatoriamente un numero de 1 a 10 
+   * entre los conductores que tenemos en plantilla por su id, una vez tengamos el numero buscamos
+   * ese id en la base de datos para pintar el conductor que va a realizar el viaje
+   */
   verCoche: (req, res) => {
+
     console.log('first')
 
+const data = Math.round(Math.random() * 10);
+    console.log(data);
 
-    res.render("verCoche");
+    let query = `SELECT * from Coches WHERE id = ${data}`;
+    connection.query(query, (err, rows) => {
+      if (err) throw err;
+      console.log('Datos de Coches: \n', rows);
+      carName = rows[0].nombre
+      carNum = rows[0].matricula
+      carTelf = rows[0].telefono
+      console.log(carName);
+      console.log(carNum);
+      console.log(carTelf);
+      res.render("verCoche", { carName, carNum, carTelf });
+      //connection.end();
+    });
 
   },
-  logHome: (req, res) => {
-    res.render("indexLog");
-  },
+  
   /**
  * Aqui creamos una funcion que nos permitira crear un usuario en la base de datos de mongo
  */
@@ -375,11 +413,6 @@ const user = {
 
 
               doc.end();
-
-
-
-
-
               db.close();
             });
         });
@@ -391,6 +424,16 @@ const user = {
 
 
   },
+
+
+
+  },
+  /**
+   * aqui renderizamos la pagina de indexLog
+   */
+  logHome: (req, res) => {
+    res.render("indexLog");
+  }, 
 
   search: (req, res) => {
     try {
@@ -450,10 +493,7 @@ const user = {
       res.render('index');
     }
 
-
-
 };
-
 
 
   module.exports = user;

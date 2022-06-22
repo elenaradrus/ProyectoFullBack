@@ -11,7 +11,6 @@ const admin = require("../controllers/admin.controllers")
 
 
  
-
 //Rutas de inicio
 router.get("/",pages.home);
 router.post("/registro",user.saveDataForm);
@@ -30,9 +29,7 @@ router.post("/borrarCoche", admin.borrarCoche);
 router.post("/borrarUsuario", admin.borrarUsuario);
 router.post("/actualizar", admin.actualizarDatos);
 
- 
 
 
- 
 
 module.exports = router;
