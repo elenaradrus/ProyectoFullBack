@@ -1,4 +1,5 @@
 
+
 // form inputs
 const formUser = document.querySelector('#name');
 const formLast = document.querySelector('#surname');
@@ -76,6 +77,8 @@ const checkPassFormat = (pass) => {
     if (formEmail.value.localeCompare(formPass.value) == 0) {
       alert('El correo electrónico y la contraseña no pueden ser iguales'); return;
     }
+  
+ 
   
 
   });  

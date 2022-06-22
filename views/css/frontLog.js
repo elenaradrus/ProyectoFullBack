@@ -87,6 +87,22 @@ console.log(routes[0].name);
 // Obtener nºTrayecto
 // console.log(uuid.v4());
   
+const infoHistorial = {
+    fecha: fecha,
+    hora: hora,
+    direccion: direccion,
+    traking: traking
+
+  }
+//   console.log(infoHistorial);
+// Enviar mierda a la base de datos
+// const todo = {
+// title: 'Some really important work to finish'
+// };
+
+
+
+
 
 
 

@@ -61,7 +61,8 @@ navigator.geolocation.getCurrentPosition(function(position){
   waypoints: [
   L.latLng(41.390205, 2.154007),
   L.latLng(e.latlng.lat, e.latlng.lng)
-  ]
+  ],
+  
   }).on('routesfound', function (e) {
   var routes = e.routes;
   console.log(routes);
@@ -141,3 +142,4 @@ function btnGr(id) {
 
 
 
+// console.log(document.getElementById('outDni').value)

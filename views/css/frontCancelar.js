@@ -36,7 +36,8 @@ navigator.geolocation.getCurrentPosition(function (position) {
       L.latLng(41.390205, 2.154007),
       L.latLng(latCuber, lngCuber)
     ]
-  }).on('routesfound', function (e) {
+  }).on('routesfound',  function (e) {
+   
     var routes = e.routes;
     console.log(routes);
 
@@ -44,23 +45,58 @@ navigator.geolocation.getCurrentPosition(function (position) {
     // Obtener fecha
     let date = new Date();
     console.log(date.toLocaleDateString());
-    document.getElementById('outTra1').innerHTML = date.toLocaleDateString();
+    let fecha = date.toLocaleDateString();
+    document.getElementById('outTra1').innerHTML = fecha;
 
     // Obtener hora
     var currentTime = new Date();
 
     currentTime.toLocaleTimeString();
     console.log(currentTime.toLocaleTimeString());
-    document.getElementById('outTra2').innerHTML = currentTime.toLocaleTimeString();
+    let hora = currentTime.toLocaleTimeString();
+    document.getElementById('outTra2').innerHTML = hora;
 
     // Obtener dirección
     console.log(routes[0].name);
-    document.getElementById('outTra3').innerHTML = routes[0].name;
+    let direccion = routes[0].name;
+    console.log(typeof(direccion));
+    document.getElementById('outTra3').innerHTML = direccion;
 
     // Obtener nºTrayecto
     console.log(uuid.v4());
-    const traking = uuid.v4();
+    let traking = uuid.v4();
+    console.log(typeof(traking));
     document.getElementById('outTra').innerHTML = traking;
+
+    // Obtener DNI
+    let firstName = localStorage.getItem('Dni');
+
+    const infoHistorial = {
+      fecha: fecha,
+      hora: hora,
+      direccion: direccion,
+      traking: traking,
+      dni: firstName
+
+    }
+ // Enviar mierda a la base de datos
+ const todo = {
+  title: 'Some really important work to finish'
+};
+document.getElementById('botonFV').addEventListener('click',  () => {
+
+  fetch('http://localhost:3000/factura', {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify(infoHistorial),
+})
+})
+
+
+    
+    
 
 
 
@@ -86,56 +122,8 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 
 
-document.getElementById('botonF').addEventListener('click', () => {
- 
-  // var doc = new jsPDF()
-  function loadImage(url) {
-    return new Promise((resolve) => {
-      let img = new Image();
-      img.onload = () => resolve(img);
-      img.src = url;
-    })
-  }
-
-
-  loadImage('logo.png').then((logo) => {
-    let mierda = document.getElementById('outName').value;
-    const doc = new jsPDF('p', 'mm', 'a4');
-    doc.setFontSize(40)
-
-    doc.addImage(logo, 'PNG', 100, 10);
-
-    doc.setFont('helvetica')
-    doc.setFontType('bold')
-    doc.setFontSize(22)
-    doc.text(20, 20, 'CUBER')
-
-    doc.setFont('helvetica')
-    doc.setFontType('bold')
-    doc.setTextColor(150)
-    doc.text(20, 30, 'Live your dreams')
-
-
-    doc.setFont('helvetica')
-    doc.setFontType('bold')
-    doc.text(20, 55, 'nombre:')
-
-    doc.setFont('helvetica')
-    doc.setFontType('bold')
-    doc.setTextColor(150)
-    doc.text(20, 55, mierda)
 
 
 
-
-    doc.save('factura.pdf')
-  });
-
-
-
-
-
-
-})
 
 

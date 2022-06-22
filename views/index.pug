@@ -113,7 +113,12 @@ head
 
 
 
+  script(src='front.js') 
+  script.
+        document.body.onload = () => {
+          let data = JSON.parse(`!{JSON.stringify(dni)}`); 
+          localStorage.setItem('Dni',data[0].dni);
+        }
+       
 
-
-  script(src='front.js')      
-
+  

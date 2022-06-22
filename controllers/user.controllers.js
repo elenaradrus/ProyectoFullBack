@@ -7,20 +7,26 @@
  */
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
-const url = "mongodb://localhost:27017/";
+const url = "mongodb://127.0.0.1:27017/";
 const mongoose = require("mongoose");
 const UserModel = require("../models/userModels");
 
-
 const PDFDocument = require('pdfkit');
-const blobStream = require('blob-stream');
+// const blobStream = require('blob-stream');
 
-const fs = require('fs');
-const doc = new PDFDocument();
+// const fs = require('fs');
+// const doc = new PDFDocument();
 
 const connection = require("../database/sqlDataBase");
 const mysql = require("mysql");
 const { propfind } = require("moongose/routes");
+
+
+
+
+
+
+
 
 /**
  * Creamos una constante que guarda los valores de los inputs en una funcion
@@ -77,11 +83,11 @@ const user = {
       const mydb = "Cuber";
       const collection = "Historial_Usuario";
       const myobj = {
-        Fecha: "18-06-202",
-        Recogida: "camp Nou",
-        numeroDeTrayecto: "6068716051",
-        Hora: "16:00",
-        Precio: "20€",
+        Fecha: "No hay trayecto",
+        Recogida: "No hay trayecto",
+        numeroDeTrayecto: "No hay trayecto",
+        Hora: "No hay trayecto",
+        Precio: "No hay trayecto",
         Dni: req.body.dni,
       };
       MongoClient.connect(url, function (err, db) {
@@ -116,8 +122,11 @@ const user = {
         if (err) throw err;
         console.log(data);
       });
+      let obj = {dni: req.body.dni}
+
       res.render("index", {
-        usuarioRegistrado: "Usuario registrado correctamente",
+        dni: [obj]
+        // usuarioRegistrado: "Usuario registrado correctamente",
       });
     }
     /**
@@ -268,7 +277,7 @@ const user = {
                     precio,
                   });
                 }
-                db.close();
+                // db.close();
               });
           });
         } else {
@@ -280,124 +289,99 @@ const user = {
   },
 
   uCuber1: (req, res) => {
+
+
     res.render("uCuber");
   },
   verCoche: (req, res) => {
+    console.log('first')
     res.render("verCoche");
 
   },
   logHome: (req, res) => {
-    console.log("hola");
-    loginEmail = req.body.userLog;
-    let selectQuery = "SELECT dni FROM ?? WHERE ?? = ?";
-    let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
-    console.log("selectQuery" + selectQuery);
-    console.log("query3" + query3);
-    connection.query(selectQuery, (err, data) => {
-      if (err) throw err;
-      console.log(data);
-      //connection.end();
-    });
+    res.render("indexLog");
   },
-}
-//   record: (req, res) => {
+  factura: async(req, res) => {
+    // console.log('todo el JSON    ' + req.body)
+    // console.log('Fecha:     ' + req.body.fecha)
+    // console.log('Hora:     ' + req.body.hora)
+    console.log('Direccion:     ' + req.body.direccion)
+    // console.log('Trak:     ' + req.body.traking)
+    
+    const myobj={
+     
+      Fecha: req.body.fecha,
+      Recogida: req.body.direccion,
+      numeroDeTrayecto: req.body.traking,
+      Hora:   req.body.hora,
+      Precio: "20€",
+      Dni:  req.body.dni,
+    }
+
+    //Insertar dentro de una coleccion de una BD
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      const mydb = "Cuber";
+      const collection = "Historial_Usuario";
+      var dbo = db.db(mydb);
+      
+      dbo.collection(collection).insertOne(myobj, function(err, res) {
+          if (err) throw err;
+          console.log("Documento insertado");
+          db.close();
+      });
+      });
+      setTimeout(() => {
+        MongoClient.connect(url, function (err, db) {
+          if (err) throw err;
+          const mydb = "Cuber";
+          const collection = "Historial_Usuario";
+          var dbo = db.db(mydb);
+          dbo
+            .collection(collection)
+            .find({})
+            .limit(1)
+            .sort({$natural:-1})
+            .toArray(function(err, result) {
+              if (err) throw err;
+              console.log(result.Fecha);
+
+              // const doc = new PDFDocument({bufferPages: true});
+
+              // const filename = `Factura${Date.now()}.pdf`;
+
+              // const stream = res.writeHead(200, { 
+              //   'Content-Type': 'application/pdf',
+              //   'Content-Disposition': `attachment;filename="${filename}`
+              // });
+              // doc.on('data', (data) => {stream.write(data)});
+              // doc.on('end', () => {stream.end()});
+          
+          
+              // doc.text('Hello world!', 30, 70);
+          
+              
+          
+              // doc.end();
+
+
+
+
+              db.close();
+          });
+          });
+      }, 1000);
+      
+    
+
 
     
-// // Create a document
-// const doc = new PDFDocument();
+    
 
-// // pipe the document to a blob
-// const stream = doc.pipe(blobStream());
-
-
-// // draw some text
-// doc.fontSize(25).text('Here is some vector graphics...', 100, 80);
-
-// // some vector graphics
-// doc
-//   .save()
-//   .moveTo(100, 150)
-//   .lineTo(100, 250)
-//   .lineTo(200, 250)
-//   .fill('#FF3300');
-
-// doc.circle(280, 200, 50).fill('#6600FF');
-
-// // an SVG path
-// doc
-//   .scale(0.6)
-//   .translate(470, 130)
-//   .path('M 250,75 L 323,301 131,161 369,161 177,301 z')
-//   .fill('red', 'even-odd')
-//   .restore();
-
-// // and some justified text wrapped into columns
-// doc
-//   .text('And here is some wrapped text...', 100, 300)
-//   .font('Times-Roman', 13)
-//   .moveDown()
-//   .text('Mierda', {
-//     width: 412,
-//     align: 'justify',
-//     indent: 30,
-//     columns: 2,
-//     height: 300,
-//     ellipsis: true
-//   });
-
-// // end and display the document in the iframe to the right
-// doc.end();
-// stream.on('finish', function() {
-//   iframe.src = stream.toBlobURL('application/pdf');
-// });
-
-  
+  },
+}
 
 
-
-
-
-    // console.log(hora);
-    // console.log(recogida);
-
-    // function crearPdf(dataCallback, endCallback) {
-    //   //let date = new Date();
-    //   //console.log(date.toLocaleDateString());
-    //   let fecha = "19/06/2022" //date.toLocaleDateString();
-    //   let hora = "20:30" //date.toLocaleTimeString();
-    //   let precio = "20€";
-
-    //   const document = new PDFDocument({ size: "A4" });
-    //   doc.on("data", dataCallback);
-    //   doc.on("end", endCallback);
-    //   doc.image('./views/css/logo.png', 430, 15, {
-    //     fit: [100, 100],
-    //     align: "center",
-    //     valign: "center"
-    //   });
-    //   doc.fontSize(20).fillColor('blue').text(`Fecha: ${fecha}`, {
-    //     align: 'center',
-    //   });
-
-    //   doc.moveDown();
-    //   doc.fontSize(12).fillcolor("black").text(`Hora: ${hora}`, {
-    //     aling: 'center',
-    //   });
-
-    //   doc.moveDown();
-    //   doc.fontSize(14).fillColor('red').text(`Precio: ${precio}`, {
-    //     align: 'center',
-    //   });
-
-    //   doc.moveDown();
-
-    //   doc.end();
-
-    // }
-
-    // crearPdf();
-
-  // }
 
 
 
