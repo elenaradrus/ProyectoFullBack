@@ -11,8 +11,17 @@ const url = "mongodb://localhost:27017/";
 const mongoose = require("mongoose");
 const UserModel = require("../models/userModels");
 
+
+const PDFDocument = require('pdfkit');
+const blobStream = require('blob-stream');
+
+const fs = require('fs');
+const doc = new PDFDocument();
+
 const connection = require("../database/sqlDataBase");
 const mysql = require("mysql");
+const { propfind } = require("moongose/routes");
+const bcrypt = require("bcrypt");
 
 /**
  * Creamos una constante que guarda los valores de los inputs en una funcion
@@ -36,19 +45,6 @@ const user = {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
     );
 
-    /*let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
-     //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
-     let query3 = mysql.format(selectQuery, ["Usuarios", "email", email, "dni", dni]);
-     console.log("selectQuery" + selectQuery)
-     console.log("query3" + query3)
-     connection.query (query3, async (err, data) => {
-       if (err) throw err; 
-       const emailRepetido = await data[0].email;
-       const dniRepetido = await data[0].dni;
-       if (email == emailRepetido || dni == dniRepetido) {
-         console.log("Usuario ya registrado");
-         await res.render("index", { usuarioRegistrado: "Usuario ya registrado" });
-       }*/
 
     /**
      * Aqui comprobamos si los datos que introduce el usuario son correctos o no
@@ -86,7 +82,14 @@ const user = {
           db.close();
         });
       });
-      let insertQuery = `INSERT INTO Usuarios
+
+      bcrypt.hash(contrasena, 10, (err, palabraSecretaEncriptada) => {
+        if (err) {
+          console.log("Error hasheando:", err);
+        } else {
+          console.log("Y hasheada es: " + palabraSecretaEncriptada);
+          palabraEncriptada = palabraSecretaEncriptada;
+          let insertQuery = `INSERT INTO Usuarios
        (
            nombre, apellido, dni ,email, telefono, contrasena
        )
@@ -94,23 +97,21 @@ const user = {
        (
            ?, ?, ?, ?, ?, ?
        )`;
-
-      let query = mysql.format(insertQuery, [
-        nombre,
-        apellidos,
-        dni,
-        email,
-        telefono,
-        contrasena,
-      ]);
-      console.log(query);
-      connection.query(query, (err, data) => {
-        if (err) throw err;
-        console.log(data);
+          let query = mysql.format(insertQuery, [
+            nombre,
+            apellidos,
+            dni,
+            email,
+            telefono,
+            palabraEncriptada
+          ]);
+          connection.query(query, (err, data) => {
+            if (err) throw err;
+            console.log(data);
+          });
+        }
       });
-      res.render("index", {
-        usuarioRegistrado: "Usuario registrado correctamente",
-      });
+      res.render("index");
     }
     /**
      * Una vez esta registrado, volvemos a el index, y el usuario tiene que volver a logearse.
@@ -119,26 +120,39 @@ const user = {
   registerUser: (req, res) => {
     res.render("index");
   },
-  updateUser: (req, res) => {},
+  updateUser: (req, res) => { },
   login: (req, res) => {
+
+    /**
+     * Guardamos en variables los inputs del login
+     */
+
     loginEmail = req.body.userLog;
     passLog = req.body.passLog;
+
+    /**
+     * Comparamos las variables con el email y contraseña del administrador para que pueda modificar.
+     */
+
+    if (loginEmail == "admin@admin.com" && passLog == "Admin123*") {
+      res.render("admin");
+    }
+
     /**
      * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
      * para poder logearse.
      */
 
-    let nameCorrect = `SELECT email,contrasena FROM Usuarios`;
+    let nameCorrect = `SELECT email,contrasena FROM Usuarios where email = '${loginEmail}'`;
 
     connection.query(nameCorrect, (err, rows) => {
       if (err) throw err;
-      
+
       console.log('Usuario: \n', rows);
-
-
-      for (let i = 0; i < rows.length; i++) {
-        if (rows[i].email == loginEmail && rows[i].contrasena == passLog) {
-          //res.render("uCuber")
+      bcrypt.compare(passLog, rows[0].contrasena).then(function (result) {
+        // result == true
+        if (result && rows[0].email == loginEmail) {
+          console.log("Usuario correcto");
           let selectQuery = "SELECT * FROM ?? WHERE ?? = ?";
           // //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
           let query3 = mysql.format(selectQuery, [
@@ -176,7 +190,7 @@ const user = {
               .toArray(function (err, result) {
                 if (err) throw err;
                 console.log("Encontrado");
-// console.log(result)
+                // console.log(result)
                 if (result[0]) {
                   fecha = result[0].Fecha;
                   recogida = result[0].Recogida;
@@ -197,12 +211,12 @@ const user = {
                       precio2 = result[2].Precio;
                       console.log('resultado3')
                       res.render("uCuber", {
-                            fecha2,
-                            recogida2,
-                            numtrayeto2,
-                            hora2,
-                            precio2,
-                          });
+                        fecha2,
+                        recogida2,
+                        numtrayeto2,
+                        hora2,
+                        precio2,
+                      });
                     } else {
                       fecha2 = "No hay trayecto";
                       recogida2 = "No hay trayecto";
@@ -216,7 +230,7 @@ const user = {
                         hora2,
                         precio2,
                       });
-                    } 
+                    }
                     res.render("uCuber", {
                       fecha1,
                       recogida1,
@@ -264,35 +278,56 @@ const user = {
               });
           });
         } else {
-          // res.render("index", {logError: "Usuario o contraseña incorrectos"})
+          console.log("contraseña incorrecta");
         }
-      }
+      });
     });
 
   },
-  logHome: (req, res) => {
-    res.render("indexLog");
-  },
+
+  /**
+   * aqui renderizamos la vista de Ucuber 
+   */
   uCuber1: (req, res) => {
     res.render("uCuber");
   },
+  /**
+   * aqui renderizamos la vista de verCoche , generamos aleatoriamente un numero de 1 a 10 
+   * entre los conductores que tenemos en plantilla por su id, una vez tengamos el numero buscamos
+   * ese id en la base de datos para pintar el conductor que va a realizar el viaje
+   */
   verCoche: (req, res) => {
-    res.render("verCoche");
 
-  },
-  logHome: (req, res) => {
-    console.log("hola");
-    loginEmail = req.body.userLog;
-    let selectQuery = "SELECT dni FROM ?? WHERE ?? = ?";
-    let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
-    console.log("selectQuery" + selectQuery);
-    console.log("query3" + query3);
-    connection.query(selectQuery, (err, data) => {
+    const data = Math.round(Math.random() * 10);
+    console.log(data);
+
+    let query = `SELECT * from Coches WHERE id = ${data}`;
+    connection.query(query, (err, rows) => {
       if (err) throw err;
-      console.log(data);
+      console.log('Datos de Coches: \n', rows);
+      carName = rows[0].nombre
+      carNum = rows[0].matricula
+      carTelf = rows[0].telefono
+      console.log(carName);
+      console.log(carNum);
+      console.log(carTelf);
+      res.render("verCoche", { carName, carNum, carTelf });
       //connection.end();
     });
+
+
   },
+  /**
+   * aqui renderizamos la pagina de indexLog
+   */
+  logHome: (req, res) => {
+    res.render("indexLog");
+
+  },
+  logOut: (req, res) => {
+    res.render('index');
+  }
+
 };
 
 module.exports = user;

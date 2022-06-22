@@ -260,6 +260,17 @@ body {
     order: 0;
     flex-grow: 0;
 }
+.dniTelU1 {
+    display: flex;
+    align-items: flex-start;
+    padding: 72px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
 
 .telU {
     margin-left: 129px;
@@ -661,7 +672,7 @@ border: none;
 .nombreC {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 18px 0px 25px 0px;
     gap: 16px;
     width: 534px;
@@ -670,6 +681,8 @@ border: none;
     order: 0;
     flex-grow: 0;
     margin-top: 61px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .telC {
@@ -678,7 +691,7 @@ border: none;
 
 
 .botonC {
-    width: 322px;
+    width: 202px;
     height: 64px;
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
@@ -689,6 +702,21 @@ border: none;
     border: none;
     position: relative;
     top: 64px;
-    left: 74px;
+    left: 277px;
+}
+
+.botonF {
+    width: 202px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #0400ff;
+    opacity: 0.55;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: -190px;
 }
 /*TODO                   Final cancela tu cuber */
