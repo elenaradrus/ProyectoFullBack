@@ -1,5 +1,6 @@
 #DROP DATABASE cuberRelacional;
 
+
 CREATE DATABASE cuberRelacional;
 
 USE cuberRelacional;
@@ -18,9 +19,8 @@ PRIMARY KEY(id)
 
 SELECT * FROM Usuarios;
 
-INSERT INTO Usuarios VALUES(null, "Elena", "Radu", "51276089G","elenaradu241@gmail.com","606308604","Elena123*");
-INSERT INTO Usuarios VALUES(null, "Paco", "Suarez", "58392087F","paco@gmail.com","6948378982","Paco123*");
-INSERT INTO Usuarios VALUES(null, "Federico", "Garcia", "57832909V","federico@gmail.com","674800278","Federico123*");
+INSERT INTO Usuarios VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "Admin123*");
+
 
 
 CREATE TABLE Coches(
@@ -63,6 +63,8 @@ FOREIGN KEY(fk_id_pedido) REFERENCES Pedidos(id) ON UPDATE CASCADE ON DELETE CAS
 );
 
 
+#DROP table Administrador;
+
 CREATE TABLE Administrador(
 id INT AUTO_INCREMENT,
 nombre VARCHAR(300) NOT NULL,
@@ -74,7 +76,7 @@ contrasena VARCHAR(300) NOT NULL,
 PRIMARY KEY(id)
 );    
 
-INSERT INTO Administrador VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "Admin123*");
+INSERT INTO Administrador VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "$2b$10$W7s5WuNHzg9uY4I/bNkERe60qsmHmSlwVosIER26qePio4o877Skm");
 
 select * from Administrador;
 

@@ -110,7 +110,11 @@ const admin = {
             console.log(query2);
             //connection.end();
         });
-    }
+    },
+
+    logOut: (req, res) => {
+        res.render('index');
+      }
 }
 
 

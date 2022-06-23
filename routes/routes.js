@@ -30,7 +30,8 @@ router.post("/anadirCoche", admin.anadirCoche);
 router.post("/borrarCoche", admin.borrarCoche);
 router.post("/borrarUsuario", admin.borrarUsuario);
 router.post("/actualizar", admin.actualizarDatos);
-
+router.post('/logOut1', admin.logOut);
+router.post('/logOut1', user.logOut1);
 
 
 
