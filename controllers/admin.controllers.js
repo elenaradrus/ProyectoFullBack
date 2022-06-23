@@ -38,7 +38,7 @@ const admin = {
         connection.query(query, (err, data) => {
             if (err) throw err;
             console.log(data);
-            res.render("", {
+            res.render("admin", {
                 nuevoCoche: "Nueva licencia añadida correctamente",
             });
             //connection.end();
@@ -54,6 +54,9 @@ const admin = {
             if (err) throw err;
             console.log(response);
             console.log("se ha borrado");
+            res.render("admin", {
+                nuevoCoche: "Licencia borrada correctamente",
+            });
             // console.log(borrarDato);
             //connection.end();
         });
@@ -67,6 +70,9 @@ const admin = {
             if (err) throw err;
             console.log(response);
             console.log("se ha borrado");
+            res.render("admin", {
+                nuevoCoche: "Conductor borrado correctamente",
+            });
             // console.log(borrarDato);
             //connection.end();
         });
@@ -82,6 +88,7 @@ const admin = {
             if (err) throw err;
             console.log(response);
             console.log(query4);
+            
             //connection.end();
         });
 
@@ -109,6 +116,9 @@ const admin = {
             console.log(response);
             console.log(query2);
             //connection.end();
+            res.render("admin", {
+                nuevoCoche: "datos actualizados correctamente",
+            });
         });
     },
 
