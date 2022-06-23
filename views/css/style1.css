@@ -81,8 +81,8 @@ body {
 .busqueda2 {
     color: #C3C3C3;
     position: relative;
-    bottom: -3px;
-    left: 1030px;
+    bottom: -9px;
+    left: 921px;
 }
 .busqueda3 {
     color: #C3C3C3;
@@ -624,7 +624,7 @@ body {
     /* top: 0px; */
     /* left: 721px; */
     height: 1018px;
-    width: 1074px;
+    width: 769px;
     /* height: 1019px; */
     z-index: 1;
 }
