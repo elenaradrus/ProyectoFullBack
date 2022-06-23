@@ -619,15 +619,14 @@ body {
 }
 
 
-#map1{
+#map1 {
     position: relative;
     /* top: 0px; */
     /* left: 721px; */
     height: 1018px;
-    width: 867px;
+    width: 1074px;
     /* height: 1019px; */
     z-index: 1;
-    
 }
 /*TODO                    Final U CUBER */
 

@@ -19,7 +19,6 @@ PRIMARY KEY(id)
 
 SELECT * FROM Usuarios;
 
-INSERT INTO Usuarios VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "Admin123*");
 
 
 
@@ -97,7 +96,4 @@ FOREIGN KEY(fk_id_pedido) REFERENCES Pedidos(id) ON UPDATE CASCADE ON DELETE CAS
 
 
 
-
-
-    
-    
+INSERT INTO Usuarios VALUES(null, "Mihai", "Mardale", "75154337X", "admin@admin.com", "640404040", "Admin123*");

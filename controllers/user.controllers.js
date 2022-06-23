@@ -294,31 +294,29 @@ const user = {
                   hora = "No hay trayecto";
                   precio = "No hay trayecto";
                   console.log('Error resultado1')
-                  res.render("uCuber", {
-                    fecha,
-                    recogida,
-                    numtrayeto,
-                    hora,
-                    precio,
-                  });
+
                   fecha1 = "No hay trayecto";
                     recogida1 = "No hay trayecto";
                     numtrayeto1 = "No hay trayecto";
                     hora1 = "No hay trayecto";
                     precio1 = "No hay trayecto";
-                    res.render("uCuber", {
-                      fecha1,
-                      recogida1,
-                      numtrayeto1,
-                      hora1,
-                      precio1,
-                    });
+                    
                     fecha2 = "No hay trayecto";
                       recogida2 = "No hay trayecto";
                       numtrayeto2 = "No hay trayecto";
                       hora2 = "No hay trayecto";
                       precio2 = "No hay trayecto";
                       res.render("uCuber", {
+                        fecha, 
+                        recogida,
+                        numtrayeto,
+                        hora,
+                        precio,
+                        fecha1,
+                        recogida1,
+                        numtrayeto1,
+                        hora1,
+                        precio1,
                         fecha2,
                         recogida2,
                         numtrayeto2,
