@@ -92,17 +92,21 @@ document.getElementById('botonReg').addEventListener('click', () => {
 document.getElementById('sing').addEventListener('click', () => {
   mostrar(contenedorRegis)
   btnGr1(contLog)
+  btnGr2(maxBoxPedir1)
 })
 document.getElementById('botonTravel').addEventListener('click', () => {
   mostrar1(contLog)
   btnGr(contenedorRegis)
+  btnGr2(maxBoxPedir1)
 })
 document.getElementById('log').addEventListener('click', () => {
   mostrar1(contLog)
   btnGr(contenedorRegis)
+  btnGr2(maxBoxPedir1)
 })
-document.getElementById('search1').addEventListener('click', () => {
-  mostrar2(maxBoxPedir1)
+
+document.getElementById('btnGr').addEventListener('click', () => {
+  btnGr2(maxBoxPedir1)
 
 })
 
@@ -145,6 +149,14 @@ function btnGr(id) {
     test.style.display = 'none'
   }
 }
+function btnGr2(id) {
+  let test = document.getElementById('maxBoxPedir1');
+  if (test.style.display == 'inline') {
+    test.style.display = 'block';
+  } else {
+    test.style.display = 'none'
+  }
+}
 function btnGr1(id) {
   let test = document.getElementById('contLog');
   if (test.style.display == 'inline') {
@@ -162,18 +174,31 @@ function btnGr1(id) {
 */
 
 document.getElementById('search1').addEventListener('click', () => {
-  const userInput = document.getElementById('search').value;
-  console.log(userInput);
-  let data = { userInput }
-  fetch('http://localhost:3000/search', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-    },
-    body: JSON.stringify(data),
-
-
-  })
+  if (document.getElementById('search').value == '') {
+    alert('No has introducido nada');
+  }else{
+    document.getElementById('search1').addEventListener('click', () => {
+      mostrar2(maxBoxPedir1)
+      btnGr(contenedorRegis)
+      btnGr1(contLog)
+    
+    })
+    const userInput = document.getElementById('search').value;
+    console.log(userInput);
+    let data = { userInput }
+    fetch('http://localhost:3000/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(data),
+  
+  
+    })
+  }
+    
+  
+  
 })
 
 

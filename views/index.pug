@@ -8,14 +8,15 @@ head
   nav.nav
     p.home Home
     div.login
-      p.busqueda Nº de trayecto
       div.barra
+        p.busquedaL Nº de trayecto
         input#search.search(type='search' placeholder='search')
         input#search1.search1(type='button' value='🔍')
 
         input#log.log(type='submit' value='Log In')
         input#sing.sing(type='submit' value='Sing Up')
   section#maxBoxPedir1.maxBoxPedir1
+      button#btnGr.btngr X
       img.logoPedir(src='logo.png' alt='')
       .mediumBoxPedir
         .mediumBoxPedirText
@@ -83,7 +84,7 @@ head
               .botonFormReg
                 a.logFooter(href='#') log in instead
                 input#botonReg.botonReg(type='submit' value='Create an account')
-        .logo
+        .logoRg
           img(src='logo.png' width='300px' height='200px' alt='')
 
   section#contLog.contLog

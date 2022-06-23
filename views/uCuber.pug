@@ -10,8 +10,6 @@ body
      form(action="/logHome", method="post")  
       input.home(type='submit' value='Home')
       input.uCuber(type='submit' value='U CUBER')
-      div.login
-        p.busqueda1 Nº de trayecto 
      form(action="/logOut", method="post")   
        div.barra
           input#logout.log1(type='submit' value='Log out')
@@ -71,7 +69,7 @@ body
                   p#precioH.precioH(style='color: grey;')
                     | Precio:
                   output#precioHO.precioHO
-                    | 20€
+                    | !{precio}
               #contHistoText1.contHistoTextU
                 #contFechaText1.contFechaText
                     p#fechaH1.fechaH
@@ -95,7 +93,7 @@ body
                   p#precioH1.precioH(style='color: grey;')
                     | Precio:
                   output#precioHO1.precioHO
-                    | 20€
+                    | !{precio1}
               #contHistoText2.contHistoTextU1
                 #contFechaText2.contFechaText
                     p#fechaH2.fechaH
@@ -119,9 +117,10 @@ body
                   p#precioH2.precioH(style='color: grey;')
                     | Precio:
                   output#precioHO2.precioHO
-                    | 20€
-            #rutasHistorialBox1.rutasHistorialBox1         
-      img#map1.map1(src='barcelona.png')
+                    | !{precio2}
+            #rutasHistorialBox1.rutasHistorialBox1
+      section#mapaUcuber.mapaUcuber               
+        img#map1.map1(src='barcelona.png')
   section#maxBoxPedir.maxBoxPedir
       img#logoPedir.logoPedir(src='logo.png' alt='')
       #mediumBoxPedir.mediumBoxPedir

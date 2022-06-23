@@ -12,9 +12,7 @@ html
         form(action="/logHome", method="post")  
           input.home(type='submit' value='Home')
         form(action="/uCuber1", method="post") 
-          input.uCuber(type='submit' value='U CUBER')
-          .login
-            p.busqueda3 Nº de trayecto
+          input#uCuber.uCuber(type='submit' value='U CUBER')
         form(action="/logOut", method="post") 
           .barra
             input#logout.log3(type='submit' value='Log out')
