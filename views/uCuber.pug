@@ -12,8 +12,9 @@ body
       input.uCuber(type='submit' value='U CUBER')
       div.login
         p.busqueda1 Nº de trayecto 
-        div.barra
-           input#logout.log1(type='submit' value='Log out')
+     form(action="/logOut", method="post")   
+       div.barra
+          input#logout.log1(type='submit' value='Log out')
   section#boxUtotal.boxUtotal
       section#uBox.uBox
         #uCuberH.uCuberH
@@ -71,7 +72,7 @@ body
                     | Precio:
                   output#precioHO.precioHO
                     | 20€
-              #contHistoText1.contHistoText1
+              #contHistoText1.contHistoTextU
                 #contFechaText1.contFechaText
                     p#fechaH1.fechaH
                       | fecha:
@@ -95,7 +96,7 @@ body
                     | Precio:
                   output#precioHO1.precioHO
                     | 20€
-              #contHistoText2.contHistoText2
+              #contHistoText2.contHistoTextU1
                 #contFechaText2.contFechaText
                     p#fechaH2.fechaH
                       | fecha:

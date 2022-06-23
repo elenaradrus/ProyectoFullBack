@@ -124,10 +124,11 @@ const user = {
       res.render("index", {
         dni: [obj]
         // usuarioRegistrado: "Usuario registrado correctamente",
-    }
+    })
     /**
      * Una vez esta registrado, volvemos a el index, y el usuario tiene que volver a logearse.
-     */
+    */
+  }
   },
   registerUser: (req, res) => {
     res.render("index");
@@ -424,17 +425,12 @@ const data = Math.round(Math.random() * 10);
 
 
   },
-
-
-
-  },
   /**
    * aqui renderizamos la pagina de indexLog
    */
   logHome: (req, res) => {
     res.render("indexLog");
   }, 
-
   search: (req, res) => {
     try {
       MongoClient.connect(url, function (err, db) {
@@ -489,11 +485,38 @@ const data = Math.round(Math.random() * 10);
         console.log(error)
       }
     },
+
     logOut: (req, res) => {
       res.render('index');
-    }
+    },
+    
 
-};
+    borrar1: (req, res) => {
+     console.log(req.body.traking)
+       
+    },
+
+    borrar: (req, res) => {
+      res.render('indexLog')
+       //Borrar coleccion
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      const mydb = "Cuber";
+      const collection = "Historial_Usuario";
+      var dbo = db.db(mydb);
+      var myquery = { 'numeroDeTrayecto': req.body.traking };
+      dbo
+      .collection(collection)
+      .deleteOne(myquery, function(err, obj) {
+        if (err) throw err;
+        console.log("Documento borrado");
+          db.close();
+      });
+    });
+     
+    },
+}
+
 
 
   module.exports = user;

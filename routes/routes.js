@@ -24,6 +24,8 @@ router.post("/genFactura", user.genFactura);
 router.post("/verCoche", user.verCoche);
 router.post("/registeruser",user.registerUser);
 router.post('/logOut', user.logOut);
+router.post('/borrar', user.borrar);
+router.post('/borrar1', user.borrar1);
 router.post("/anadirCoche", admin.anadirCoche);
 router.post("/borrarCoche", admin.borrarCoche);
 router.post("/borrarUsuario", admin.borrarUsuario);
