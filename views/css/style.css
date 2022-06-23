@@ -1,0 +1,1088 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*TODO                        empiezo nav */
+.nav {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 73px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.25);
+    z-index: 1;
+}
+
+.textNa {
+    display: flex;
+}
+
+.home {
+    color: #C3C3C3;
+    margin-left: 25px;
+}
+
+.home:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+
+.uCuber {
+    color: #C3C3C3;
+    margin-left: 25px;
+}
+
+.uCuber:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+
+.nametext {
+    color: red;
+}
+
+.busqueda {
+    color: #C3C3C3;
+    position: relative;
+    bottom: 48px;
+    left: 1144px;
+}
+.busquedaL {
+    color: #C3C3C3;
+    position: relative;
+    bottom: -3px;
+   
+}
+
+/* .login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
+.barra {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 167px;
+    height: 40px;
+    right: 127px;
+    top: calc(50% - 40px/2 + 0.5px);
+}
+
+.search {
+    /* Search */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 8px;
+
+    width: 99px;
+    height: 34px;
+
+    background: #F7F7F7;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 16px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.search1{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px 16px;
+    /* gap: 40px; */
+    width: 17px;
+    height: 32px;
+    background: #F7F7F7;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 31px;
+    margin-left: -50px;
+}
+
+
+.log {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.log:active {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+
+.sing {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.sing:active {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+/*TODO                   termino nav */
+
+
+
+/*TODO                   empiezo registro */
+
+.contenedorRegis {
+    display: none;
+}
+.maxBoxPedir1 {
+    display: none;
+}
+.maxBoxPedir2 {
+    display: none;
+}
+.maxBoxPedir3 {
+    
+}
+
+
+.acountCreate {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1017px;
+    height: 808px;
+    left: 201px;
+    top: 102px;
+    background: #FFFFFF;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 0px; */
+    gap: 69px;
+    /* width: 534px; */
+    /* height: 87px; */
+    /* flex: none; */
+    /* order: 0; */
+    /* flex-grow: 0; */
+    justify-content: center;
+    z-index: 1;
+
+}
+
+.acountBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.acountContenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+
+    position: absolute;
+    width: 534px;
+    height: 722px;
+    left: 56px;
+    top: 56px;
+}
+
+.acountHead {
+    display: flex;
+    flex-direction: column;
+}
+
+.acountTextHead {
+    width: 304px;
+    height: 48px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.acountTextHead2 {
+
+    width: 277px;
+    /* height: 24px; */
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-top: -20px;
+}
+
+.acout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    width: 534px;
+    height: 500px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -35px;
+}
+
+.nameSurnameBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.dniPhoneBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.passConfBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 534px;
+    height: 87px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nameText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.surnameText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.dniText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.phoneText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.emailText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.passText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.confPassText {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+}
+
+.name {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.surname {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.dni {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.phone {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.email {
+    box-sizing: border-box;
+    width: 537px;
+    height: 56px;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.pass {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.passConf {
+    box-sizing: border-box;
+
+    width: 259px;
+    height: 56px;
+
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+
+.textVali {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: #666666;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.chec {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 8px 8px 0px;
+    gap: 8px;
+
+    width: 166px;
+    height: 40px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.checText {
+    width: 126px;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -1px;
+}
+
+.botonFormReg {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 229px;
+    width: 534px;
+    height: 87px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.botonReg {
+    position: absolute;
+    left: 275px;
+    right: 0px;
+    top: 658px;
+    bottom: 0px;
+    color: #FFFFFF;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+.logFooter {
+    position: absolute;
+    width: 108px;
+    height: 24px;
+    left: 0px;
+    top: 701px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #111111;
+}
+
+/*TODO                      termino Registro */
+
+
+
+/*TODO                     Empiezo Texto del Home */
+
+.textCentral {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 114px;
+
+}
+
+.travel {
+    margin-top: 93px;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 70px;
+    color: white;
+}
+
+.travelp {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-top: -55px;
+    color: white;
+
+}
+
+.botonTravel {
+    width: 353px;
+    height: 72px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: #FFFFFF;
+    background: #111111;
+    border-radius: 40px;
+    border: none;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.faldon {
+    background-color: #FFFFFF;
+    border-radius: 27px;
+    height: 144px;
+    width: 550px;
+    position: relative;
+    left: -66px;
+}
+
+.faldonP {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    top: 21px;
+    right: 21px;
+    font-size: 19px;
+    line-height: 36px;
+    color: #716D6D;
+}
+
+/*TODO                     Fin Texto del Home */
+
+
+
+/*TODO                    Comienzo Log */
+
+.contLog {
+    display: none;
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+.contLog1 {
+    display: flex;
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 416px;
+    height: 365px;
+    left: 1033px;
+    top: 97px;
+    border-radius: 24px;
+}
+
+.contLogBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    position: absolute;
+    width: 342px;
+    height: 307px;
+    left: 37px;
+    top: -3px;
+}
+
+.logBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 2px;
+    line-height: 0px;
+    width: 293px;
+    height: 62px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logHTex {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    color: #333333;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.logPText {
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    text-align: center;
+    color: rgba(102, 102, 102, 0.8);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.inpBu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 342px;
+    height: 128px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: -39px;
+}
+.userLog {
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    width: 342px;
+    height: 56px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+}
+
+.passLog {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    width: 342px;
+    height: 56px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+}
+
+.botonLog {
+    width: 342px;
+    height: 56px;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 40px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+
+/*TODO                    Final Log */
+
+
+
+/*TODO                    comienzo U CUBER */
+.boxUtotal {
+    position: absolute;
+    /* width: 1954px; */
+    /* left: 0px; */
+    top: 73px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+
+.uBox {
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 721px;
+    height: 1040px;
+    left: 0px;
+    top: -21px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    border-radius: 24px;
+}
+
+.uCuberH {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 166px;
+    gap: 40px;
+
+    position: absolute;
+    width: 534px;
+    height: 561px;
+    left: 122px;
+    top: 90px;
+
+}
+
+.cabeceraU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 0px;
+    width: 130px;
+    height: 78px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.cabeTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.pTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-top: -43px;
+}
+
+.nombreU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.lnameU {
+    margin-left: 112px;
+}
+
+.dniTelU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.telU {
+    margin-left: 129px;
+}
+
+.emailOU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 60px 0px;
+    gap: 28px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border-block-end: 1px solid #c4c4c4;
+}
+
+.botonU {
+    width: 322px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: 74px;
+}
+
+.rutasHistorialBox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 622px;
+    height: 358px;
+    left: -80px;
+    top: 554px;
+
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 37px;
+}
+
+.historialTexU{
+    margin-left: 26px;
+}
+
+.contHistoText{
+    box-sizing: border-box;
+    position: absolute;
+    width: 551px;
+    height: 113px;
+    left: 19px;
+    top: 63px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+
+
+.contFechaText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 0px 5px 29px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.salidLlegada{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.horas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.oraHS{
+    margin-left: 78px;
+}
+
+.precioHis{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 3px 8px 430px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    border: 0;
+    position: relative;
+    top: -30px;
+    flex-grow: 0;
+}
+
+
+
+/*TODO                    Final U CUBER */

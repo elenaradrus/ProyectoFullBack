@@ -1,0 +1,159 @@
+head
+  link(rel='stylesheet' href='style1.css')
+  title UCuber  
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
+  link(rel='stylesheet' href='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
+body  
+  nav.nav
+    section.textNa
+     form(action="/logHome", method="post")  
+      input.home(type='submit' value='Home')
+      input.uCuber(type='submit' value='U CUBER')
+     form(action="/logOut", method="post")   
+       div.barra
+          input#logout.log1(type='submit' value='Log out')
+  section#boxUtotal.boxUtotal
+      section#uBox.uBox
+        #uCuberH.uCuberH
+          #upersonalBox.upersonalBox
+            #cabeceraU.cabeceraU
+              h1#cabeTexU.cabeTexU
+                | U Cuber
+              p#pTexU.pTexU(style='color: grey;')
+                | You are ready?
+            #nombreU.nombreU
+              p#FnameU.FnameU(style='color: grey;') 
+                | First name: 
+              p#outName.outName !{logNombre}
+              p#LnameU.LnameU(style='color: grey;')
+                | Last name:
+              p#outLast.outLast !{logApellido}
+            #dniTelU.dniTelU
+              p#dniU.dniU(style='color: grey;')
+                | D.N.I:
+              p#outDni.outDni !{logDni}
+              //- input(type='hidden' value= #{logDni} name='DniLog')
+              p#telU.telU(style='color: grey;')
+                | Telefono:
+              p#outTel.outTel !{logTelefono}
+            #emailOU.emailOU
+              p#emailU.emailU(style='color: grey;')
+                | Email adress:
+              p#outEmail.outEmail !{logEmail}
+            input#botonU.botonU(type='button' value='Pide tu CUBER')
+          #rutasHistorialBox.rutasHistorialBox
+            h1#historialTexU.historialTexU
+              | Historial:
+            #contHisto.contHisto
+              #contHistoText.contHistoText
+                #contFechaText.contFechaText
+                    p#fechaH.fechaH
+                      | fecha:
+                    output#fechaOu.fechaOu
+                      | !{fecha}
+                #salidLlegada.salidLlegada
+                  p#salidaH.salidaH(style='color: red;')
+                    | Recogida:
+                  output#salidaO.salidaO
+                    | !{recogida}
+                  p#llegadaH.llegadaH(style='color: red;')
+                    | Nº Trayecto
+                  output#llegadaHO.llegadaHO
+                    | !{numtrayeto}
+                #horas.horas
+                  p#oraH.oraH(style='color: red;')
+                    | Hora:
+                  output#oraO.oraO
+                    | !{hora}
+                  p#precioH.precioH(style='color: grey;')
+                    | Precio:
+                  output#precioHO.precioHO
+                    | !{precio}
+              #contHistoText1.contHistoTextU
+                #contFechaText1.contFechaText
+                    p#fechaH1.fechaH
+                      | fecha:
+                    output#fechaOu1.fechaOu
+                      | !{fecha1}
+                #salidLlegada1.salidLlegada
+                  p#salidaH1.salidaH(style='color: red;')
+                    | Recogida:
+                  output#salidaO1.salidaO
+                    | !{recogida1}
+                  p#llegadaH1.llegadaH(style='color: red;')
+                    | Nº Trayecto
+                  output#llegadaHO1.llegadaHO
+                    | !{numtrayeto1}
+                #horas1.horas
+                  p#oraH1.oraH(style='color: red;')
+                    | Hora:
+                  output#oraO1.oraO
+                    | !{hora1}
+                  p#precioH1.precioH(style='color: grey;')
+                    | Precio:
+                  output#precioHO1.precioHO
+                    | !{precio1}
+              #contHistoText2.contHistoTextU1
+                #contFechaText2.contFechaText
+                    p#fechaH2.fechaH
+                      | fecha:
+                    output#fechaOu2.fechaOu
+                      | !{fecha2}
+                #salidLlegada2.salidLlegada
+                  p#salidaH2.salidaH(style='color: red;')
+                    | Recogida:
+                  output#salidaO2.salidaO
+                    | !{recogida2}
+                  p#llegadaH2.llegadaH(style='color: red;')
+                    | Nº Trayecto
+                  output#llegadaHO2.llegadaHO
+                    | !{numtrayeto2}
+                #horas2.horas
+                  p#oraH2.oraH(style='color: red;')
+                    | Hora:
+                  output#oraO2.oraO
+                    | !{hora2}
+                  p#precioH2.precioH(style='color: grey;')
+                    | Precio:
+                  output#precioHO2.precioHO
+                    | !{precio2}
+            #rutasHistorialBox1.rutasHistorialBox1
+      section#mapaUcuber.mapaUcuber               
+        img#map1.map1(src='barcelona.png')
+  section#maxBoxPedir.maxBoxPedir
+      img#logoPedir.logoPedir(src='logo.png' alt='')
+      #mediumBoxPedir.mediumBoxPedir
+        #mediumBoxPedirText.mediumBoxPedirText
+          h1#selectTouText.selectTouText
+            | Select your route
+          p#livingTouText.livingTouText
+            | and start living
+        #minBoxPedir.minBoxPedir
+          #puntosBoxText.puntosBoxText
+            h2#puntosCabe.puntosCabe
+              | Marca en el mapa tu recogida
+            h2#calleMap.calleMap
+            #mapaRutaIn.mapaRutaIn
+              #map(style='width:100%; height:50vh; postion: relative; top: 56px')
+            //- #map(style='width:100%; height: 100vh')  
+            #pagoCuber.pagoCuber
+              h2#tiempoFinal.tiempoFinal
+                | Puedes tener un coche en menos de 30 min.
+                br
+                |                             tan solo: 20€ 
+                br
+                |                             Solo pagos con Tarjeta.
+        form(action="/verCoche", method="post")         
+          #botonpagar.botonpagar
+            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber' src='/views/verCoche.pug')
+
+  
+  script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js')
+  script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
+  script(type='module' src='frontU.js')     
+
+
+

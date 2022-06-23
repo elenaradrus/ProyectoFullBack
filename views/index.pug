@@ -1,0 +1,153 @@
+head
+  link(rel='stylesheet',  href="/style.css")
+  link(rel='stylesheet',  href="/style1.css")
+  title Home 
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
+  link(rel='stylesheet' href='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js') 
+  nav.nav
+    p.home Home
+    div.login
+      div.barra
+        p.busquedaL Nº de trayecto
+        input#search.search(type='search' placeholder='search')
+        input#search1.search1(type='button' value='🔍')
+
+        input#log.log(type='submit' value='Log In')
+        input#sing.sing(type='submit' value='Sing Up')
+  section#maxBoxPedir1.maxBoxPedir1
+      button#btnGr.btngr X
+      img.logoPedir(src='logo.png' alt='')
+      .mediumBoxPedir
+        .mediumBoxPedirText
+          h1.selectTouText
+            | Pronto estermos en el punto de recogida
+          p#livingTouText.livingTouText
+            | and start living
+        #minBoxPedir.minBoxPedir
+          #puntosBoxText.puntosBoxText
+            h2#calleMap.calleMap
+            #mapaRutaIn.mapaRutaIn
+              #map.map(style='width:100%; height:50vh; postion: relative; top: 56px')
+            //- #map(style='width:100%; height: 100vh')  
+            
+      
+  #contenedorRegis.contenedorRegis
+    .acountCreate
+        .acountBox
+          .acountContenedor
+            .acountHead
+              h1.acountTextHead
+                | Create an acount
+              p.acountTextHead2
+                | Already have an acount? 
+                a(href='') Log in
+            form.acout(action='/registro' method="post")
+              .nameSurnameBox
+                .nameBox
+                  p.nameText
+                    | First name
+                  input#name.name(type='text' name='name' required='')
+                .surnameBox
+                  p.surnameText
+                    | Last name
+                  input#surname.surname(type='text' name='surname' required='')
+              .dniPhoneBox
+                .dniBox
+                  p.dniText
+                    | D.N.I
+                  input#dni.dni(type='text' name='dni' required='')
+                .phoneBox
+                  p.phoneText
+                    | Telefono
+                  input#phone.phone(type='text' name='phone' required='')
+              .emailBox
+                p.emailText
+                  | Email address
+                input#email.email(type='email' name='email' required='')
+              .passConfBox
+                .passBox(name="passText")
+                  p.passText
+                    | Password
+                  input#pass.pass(type='password' name='pass' required='')
+                .confBox
+                  p.confPassText
+                    | Confirm your password
+                  input#passConf.passConf(type='password' name='passConf' required='')
+              .moreText
+                p.textVali
+                  | Use 8 or more characters with a mix of letters,number & symbols
+                .chec
+                  input#checkPass.checkPass(type='checkbox' name='checkPass')
+                  p.checText
+                    | Show password
+              .botonFormReg
+                a.logFooter(href='#') log in instead
+                input#botonReg.botonReg(type='submit' value='Create an account')
+        .logoRg
+          img(src='logo.png' width='300px' height='200px' alt='')
+
+  section#contLog.contLog
+      .contLogBox    
+        .logBox
+          h1.logHTex
+            | Sign up for free
+          p.logPText
+            | Full access to in any of our products
+        form.inpBu(action="/login" method="post")
+          input#userLog.userLog(type='text' name='userLog' placeholder='Enter your user log' required='')
+          input#passLog.passLog(type='password' name='passLog' placeholder='Enter your password log' required='')
+          input#botonLog.botonLog(type='submit' value='Continue')
+          
+
+        //- p.logPText
+        //-   | -------- OR --------
+        //- .g-signin2(data-longtitle='true' data-onsuccess='onSignIn')
+
+        
+  section.textCentral
+      h1.travel
+        | Travel with us
+        br
+        |             Travel with CUBER
+      p.travelp
+        | No esperes, no desesperes
+        br
+        |             Con CUBER tu vida sera mas facil.
+        br
+        |             Somos conductores de tu tiempo y
+        br
+        |             no vamos a perderlo!!
+      input#botonTravel.botonTravel(type='button' value='Log in')
+  section.faldon
+      p.faldonP
+        | Actualmente solo disponemos de coches en
+        br
+        |             Barcelona!
+        br
+        |             Pronto estaremos en tu ciudad
+
+
+
+
+
+
+  script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js')
+  script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
+  script(src='front.js') 
+  script.
+        document.body.onload = () => {
+          let data = JSON.parse(`!{JSON.stringify(latLong)}`); 
+          localStorage.setItem('LatLong','perro');
+        }  
+  script.
+        document.body.onload = () => {
+          let data = JSON.parse(`!{JSON.stringify(dni)}`); 
+          localStorage.setItem('Dni',data[0].dni);
+        }
+
+       
+
+  

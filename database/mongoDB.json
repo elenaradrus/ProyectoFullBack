@@ -1,0 +1,11 @@
+{
+  "_id": {
+    "$oid": "62aef0b1fae1a6b5ebb40a36"
+  },
+  "Fecha": "No hay trayecto",
+  "Recogida": "No hay trayecto",
+  "numeroDeTrayecto": "No hay trayecto",
+  "Hora": "No hay trayecto",
+  "Precio": "20€",
+  "Dni": "44477766a"
+}

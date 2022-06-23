@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: user.controllers.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: user.controllers.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @author Julian Osorio
+ */
+
+/**
+ * Llamamos a las librerias de mongoose y sql
+ */
+const mongoose = require("mongoose");
+const UserModel = require("../models/userModels");
+
+const connection = require("../database/sqlDataBase")
+const mysql = require("mysql")
+
+/**
+ * Creamos una constante que guarda los valores de los inputs en una funcion
+ * para validacion de registro.
+ */
+const user = {
+  saveDataForm: (req, res) => {
+    let nombre = req.body.name;
+    let apellidos = req.body.surname;
+    let email = req.body.email;
+    let contrasena = req.body.pass;
+    let contrasenaConf = req.body.passConf;
+    let telefono = req.body.phone;
+    let dni = req.body.dni;
+    const emailExp = new RegExp(/^([\d\w_\.-]+)@([\d\w\.-]+)\.([\w\.]{3})$/);
+    const nameExp = new RegExp(/^([A-Za-z]{1,15})$/);
+    const unNameExp = new RegExp(/^([A-Za-z]{1,15})$/);
+    const telfExp = new RegExp(/^\d{9}$/);
+    const dniExp = new RegExp(/^\d{8}[a-zA-Z]$/);
+    const passExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&amp;])([A-Za-z\d$@$!%*?&amp;]|[^ ]){8,15}$/);
+
+
+    /*let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
+    //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
+    let query3 = mysql.format(selectQuery, ["Usuarios", "email", email, "dni", dni]);
+    console.log("selectQuery" + selectQuery)
+    console.log("query3" + query3)
+    connection.query (query3, async (err, data) => {
+      if (err) throw err; 
+      const emailRepetido = await data[0].email;
+      const dniRepetido = await data[0].dni;
+      if (email == emailRepetido || dni == dniRepetido) {
+        console.log("Usuario ya registrado");
+        await res.render("index", { usuarioRegistrado: "Usuario ya registrado" });
+      }*/
+
+/**
+ * Aqui comprobamos si los datos que introduce el usuario son correctos o no
+ * si lo son se introducen en la base de datos, y si no lo son le indicamos a el usuario que son 
+ * incorrectos
+ */
+    if (
+      !emailExp.test(email) ||
+      !nameExp.test(nombre) ||
+      !unNameExp.test(apellidos) ||
+      !dniExp.test(dni) ||
+      !passExp.test(contrasena) ||
+      contrasena != contrasenaConf ||
+      !telfExp.test(telefono)
+    ) { 
+      console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
+    } else {
+      
+
+      let insertQuery = `INSERT INTO Usuarios
+      (
+          nombre, apellido, dni ,email, telefono, contrasena
+      )
+      VALUES
+      (
+          ?, ?, ?, ?, ?, ?
+      )`;
+
+
+      let query = mysql.format(insertQuery, [nombre, apellidos, dni, email, telefono, contrasena]);
+      console.log(query)
+      connection.query(query, (err, data) => {
+        if (err) throw err;
+        console.log(data);
+      });
+      res.render("index" , { usuarioRegistrado: "Usuario registrado correctamente" });
+    }
+/**
+ * Una vez esta registrado, volvemos a el index, y el usuario tiene que volver a logearse.
+ */
+  },
+  registerUser: (req, res) => {
+    res.render("index");
+  },
+  updateUser: (req, res) => {
+
+  },
+  login: (req, res) => {
+    loginEmail = req.body.userLog
+    passLog = req.body.passLog
+    /**
+    * Aqui comparamos si los datos introducidos por el usuario en el login se encuentran en la base de datos
+    * para poder logearse.
+    */
+
+    let nameCorrect = `SELECT email,contrasena FROM Usuarios`;
+
+    connection.query(nameCorrect, (err, rows) => {
+      if (err) throw err;
+      console.log('Usuario: \n', rows);
+
+      //res.json(rows);
+
+      for (let i = 0; i &lt; rows.length; i++) {
+
+        if (rows[i].email == loginEmail &amp;&amp; rows[i].contrasena == passLog) {
+          //res.render("uCuber") 
+          let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
+    // //`SELECT * FROM Usuarios WHERE email = ${loginEmail}`
+    let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
+    console.log("selectQuery" + selectQuery)
+    console.log("query3" + query3)
+    connection.query(query3, (err, data) => {
+      if (err) throw err;
+      console.log(data);
+      let logNombre = data[0].nombre;
+      let logApellido = data[0].apellido;
+      let logDni = data[0].dni;
+      let logEmail = data[0].email;
+      let logTelefono = data[0].telefono;
+      res.render("uCuber", {logNombre, logApellido, logDni, logEmail, logTelefono});
+    }) } else {
+        
+        //res.render("index", {logError: "Usuario o contraseña incorrectos"}) 
+          
+          
+        }
+        
+      }
+
+    });
+
+    
+
+
+
+
+
+
+    //res.render("uCuber")
+
+
+    //connection.end();
+
+
+  },
+  logHome: (req, res) => {
+    console.log("hola");
+    // loginEmail = req.body.userLog
+    // let selectQuery = 'SELECT * FROM ?? WHERE ?? = ?';
+    // let query3 = mysql.format(selectQuery, ["Usuarios", "email", loginEmail]);
+    // console.log("selectQuery" + selectQuery)
+    // console.log("query3" + query3)
+    // connection.query(selectQuery, (err, data) => {
+    //   if (err) throw err;
+    //   console.log(data);
+    //   //connection.end();
+    // });
+
+  }
+
+
+
+
+}
+
+
+
+
+module.exports = user;
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#mongoose">mongoose</a></li><li><a href="global.html#user">user</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat Jun 18 2022 10:45:32 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

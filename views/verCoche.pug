@@ -1,0 +1,63 @@
+html
+  head
+    link(rel='stylesheet' href='style1.css')
+    title Pedido 
+    link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
+    link(rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js' integrity='sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/' crossorigin='anonymous')
+  body
+    nav.nav
+      section.textNa
+        form(action="/logHome", method="post")  
+          input.home(type='submit' value='Home')
+        form(action="/uCuber1", method="post") 
+          input#uCuber.uCuber(type='submit' value='U CUBER')
+        form(action="/logOut", method="post") 
+          .barra
+            input#logout.log3(type='submit' value='Log out')
+              
+    section#boxUtotal.boxUtotal
+      section#uBox.uBox  
+        #uCuberC.uCuberC
+          #upersonalBox.upersonalBox
+            #cabeceraC.cabeceraC
+              .logo
+                img(src='logo.png' width='300px' height='200px' alt='')  
+              h1#cabeTexU.cabeTexU U Cuber
+              p#pTexU.pTexU(style='color: grey;') You are ready?
+            #nombreC.nombreC
+              p#FnameU.FnameU(style='color: grey;') Conductor:
+              p#outName.outName !{carName}
+              p#LnameU.LnameU(style='color: grey;') Matricula:
+              p#outLast.outLast !{carNum}
+              p#telC.telC1(style='color: grey;') Telefono:
+              p#outTel.outTel !{carTelf}
+            #dniTelU.dniTelU1
+              p#dniU.dniU(style='color: grey;') Nº de trayecto:
+              p#outTra.outDni(name='trakNum')
+            #dniTelU1.dniTelU
+              p#dniU1.dniU(style='color: grey;') Fecha:
+              p#outTra1.outDni(name='trakFecha')
+              p#telC1.telC(style='color: grey;') Hora:
+              p#outTra2.outDni(name='trakHora')
+            #emailOU1.emailOU
+              p#emailU1.emailU(style='color: grey;') Recogida:
+              p#outTra3.outDni(name='trakRecogida')
+            #emailOU.emailOU
+              p#emailU.emailU(style='color: grey;') Su CUBER:
+              p#outEmail.outEmail
+                | En 
+                span(style='color: red;') 10min
+                |   estaremos recogiendole
+            form(action="/borrar", method="post")
+              input#botonC.botonC(type='submit' value='Cancela tu CUBER')
+              //- input#botonF.botonF(type='submit' value='Generar Factura')
+            form(action="/genFactura", method="post")  
+              input#botonFV.botonF(type='submit' value='Ir a factura')
+              //- a#botonFV.botonF(href='/get-factura/{{this.id}}') Generar Factura
+      #map(style='width:769px; height:1018; postion: relative; top: 0px; left: 721px')
+      
+    script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+    script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
+    script(type='module' src='frontCancelar.js')

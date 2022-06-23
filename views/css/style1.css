@@ -1,0 +1,950 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+/*TODO                        empiezo nav */
+.nav {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 73px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.25);
+    z-index: 1;
+}
+
+.textNa {
+    display: flex;
+
+}
+
+.home {
+    color: #C3C3C3;
+    margin-left: 25px;
+    margin-top: 21px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+.home:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+
+.uCuber {
+    color: #C3C3C3;
+    margin-left: 25px;
+    margin-top: 21px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+.uCuber:hover {
+    /* background-color: #111111; */
+    color: #111111;
+}
+
+.busqueda {
+    color: #C3C3C3;
+    position: relative;
+    bottom: 48px;
+    left: 1144px;
+}
+
+.busquedaL {
+    color: #C3C3C3;
+    position: relative;
+    bottom: -3px;
+    
+}
+.busqueda1 {
+    color: #C3C3C3;
+    position: relative; 
+    bottom: 45px;
+    left: 1314px;
+}
+.busqueda2 {
+    color: #C3C3C3;
+    position: relative;
+    bottom: -9px;
+    left: 921px;
+}
+.busqueda3 {
+    color: #C3C3C3;
+    position: relative;
+    bottom: 42px;
+    left: 1273px;
+}
+
+/* .login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
+.barra {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 167px;
+    height: 40px;
+    right: 127px;
+    top: calc(50% - 40px/2 + 0.5px);
+}
+.barra1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 225px;
+    height: 40px;
+    right: 9px;
+    top: calc(50% - 40px/2 + 0.5px);
+}
+
+.search {
+    /* Search */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 8px;
+
+    width: 99px;
+    height: 34px;
+
+    background: #F7F7F7;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 16px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.log {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+.log1 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    left: 102px;
+
+}
+.log2 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    top: 7px;
+    left: -6px;
+
+}
+.log3 {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #111111;
+    border-radius: 8px;
+    position: relative;
+    left: 106px;
+
+}
+
+.log:active {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+
+.sing {
+    /* Button */
+
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    width: 98px;
+    height: 40px;
+
+    border: 1px solid #111111;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.sing:active {
+    background-color: black;
+    color: #FFFFFF;
+}
+
+/*TODO                   termino nav */
+
+
+/*TODO                    comienzo U CUBER */
+.boxUtotal {
+    position: absolute;
+    /* width: 1954px; */
+    /* left: 0px; */
+    top: 73px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+.mapaUcuber {
+    position: absolute;
+    width: 100%;
+    left: 720px;
+    top: 0px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+
+.uBox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 730px;
+    height: 1040px;
+    left: -9px;
+    top: -21px;
+    background: #FFFFFF;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    
+}
+
+.uCuberH {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 166px;
+    gap: 40px;
+
+    position: absolute;
+    width: 534px;
+    height: 561px;
+    left: 122px;
+    top: 90px;
+
+}
+
+.cabeceraU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 0px;
+    width: 130px;
+    height: 78px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.cabeTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.pTexU {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-top: -43px;
+}
+
+.nombreU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.lnameU {
+    margin-left: 112px;
+}
+
+.dniTelU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.dniTelU1 {
+    display: flex;
+    align-items: flex-start;
+    padding: 72px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.telU {
+    margin-left: 129px;
+}
+
+.emailOU {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 18px 0px 60px 0px;
+    gap: 28px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border-block-end: 1px solid #c4c4c4;
+}
+
+.botonU {
+    width: 322px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #111111;
+    opacity: 0.25;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: 74px;
+}
+
+.rutasHistorialBox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 622px;
+    height: 445px;
+    left: -80px;
+    top: 470px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+
+}
+.rutasHistorialBox1 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 220px;
+    height: 74px;
+    left: 180px;
+    top: 209px;
+}
+
+.historialTexU{
+    margin-left: 26px;
+}
+
+.contHistoText{
+    box-sizing: border-box;
+    position: absolute;
+    width: 591px;
+    height: 113px;
+    left: 19px;
+    top: 63px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+.contHistoTextU{
+    box-sizing: border-box;
+    position: absolute;
+    width: 591px;
+    height: 113px;
+    left: 19px;
+    top: 190px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+.contHistoTextU1{
+    box-sizing: border-box;
+    position: absolute;
+    width: 591px;
+    height: 113px;
+    left: 19px;
+    top: 319px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+}
+.contHistoText1{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 146px;
+    left: 19px;
+    top: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+.contHistoText2{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 68px;
+    left: 19px;
+    top: 208px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.contHistoText3{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 146px;
+    left: 19px;
+    top: 332px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contHistoText4{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 856px;
+    height: 61px;
+    left: 19px;
+    top: 516px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border : 1px solid #E7E7E7;
+    
+}
+
+.btn1{
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border: none;
+}
+.btn2{
+    position: relative;
+    right: 243px;
+    border-radius: 35px;
+    width: 210px;
+    height: 36px;
+    border: none;
+}
+
+
+.lastForm{
+    margin-top: 10px;
+}
+
+.contenedorInput{
+    display: flex;
+    position: relative;
+    left: 78px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+
+.contFechaText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 0px 5px 29px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.salidLlegada{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.horas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 8px 39px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.oraHS{
+    margin-left: 78px;
+}
+
+.precioHis{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 3px 8px 430px;
+    gap: 16px;
+    width: 534px;
+    height: 27px;
+    flex: none;
+    border: 0;
+    position: relative;
+    top: -30px;
+    flex-grow: 0;
+}
+
+
+#map1 {
+    position: relative;
+    /* top: 0px; */
+    /* left: 721px; */
+    height: 1018px;
+    width: 769px;
+    /* height: 1019px; */
+    z-index: 1;
+}
+/*TODO                    Final U CUBER */
+
+.maxBoxPedir{
+    display: none;
+}
+
+.mediumBoxPedir{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1017px;
+    height: 841px;
+    left: 279px;
+    top: 117px;
+    background: #FFFFFF;
+    border: 1px solid rgba(102, 102, 102, 0.5);
+    border-radius: 24px;
+    z-index: 1;
+} 
+
+.logoPedir{
+    z-index: 2;
+    position: relative;
+    left: 1060px;
+    top: 125px;
+    width: 165px;
+}
+.logoPedir1{
+    z-index: 2;
+    position: relative;
+    left: 1048px;
+    bottom: 603px;
+    width: 168px;
+}
+.logoPedir2{
+    z-index: 2;
+    position: relative;
+    left: 1048px;
+    bottom: 603px;
+    width: 168px;
+}
+
+.mediumBoxPedirText{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* width: 275px; */
+    /* height: 78px; */
+    margin-left: 40px;
+}
+
+.livingTouText{
+    font-family: 'Poppins', sans-serif;
+    margin-top: -16px;
+    color: #333333;
+}
+
+.selectTouText{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+   
+}
+
+.minBoxPedir{
+    box-sizing: border-box;
+    position: absolute;
+    width: 908px;
+    height: 615px;
+    left: 72px;
+    top: 126px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+}
+
+.puntosCabe{
+    
+    margin-left: 46px;
+    margin-top: 4px;
+
+}
+
+.desde {
+ display: flex;
+
+}
+.donde{
+    display: flex;
+}
+.puntero{
+    position: absolute;
+    left: 48px;
+    top: 45px;
+}
+.puntero2{
+    position: absolute;
+    left: 341px;
+    top: 45px;
+}
+
+.desdeInp{
+
+    box-sizing: border-box;
+    position: absolute;
+    width: 252px;
+    height: 28px;
+    left: 72px;
+    top: 47px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+}
+.dondeInp{
+
+    box-sizing: border-box;
+    position: absolute;
+    width: 252px;
+    height: 28px;
+    left: 367px;
+    top: 47px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 37px;
+}
+/* 
+#map{
+    position: relative;
+    left: 37px;
+    top: 25px;
+    width: 588px;
+    height: 66px;
+    z-index: 2;
+    border-radius: 43px;
+    
+} */
+.calleMap{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-bottom: -38px;
+}
+
+.pagoCuber{
+    position: absolute;
+    width: 415px;
+    height: 58px;
+    left: 248px;
+    top: 497px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.botonpagar{
+    padding: 0px;
+    /* gap: 40px; */
+    position: absolute;
+    width: 259px;
+    height: 69px;
+    left: 349px;
+    top: 753px;
+}
+
+.botonpagarB{
+   
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 5px;
+font-family: 'Poppins', sans-serif;
+font-size: 20px;
+color: #FFFFFF;
+background: #111111;
+opacity: 0.25;
+border-radius: 32px;
+border: none;
+}
+.botonpagarB1{
+   
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 5px;
+font-family: 'Poppins', sans-serif;
+font-size: 20px;
+color: #FFFFFF;
+background: #111111;
+opacity: 0.25;
+border-radius: 32px;
+border: none;
+}
+
+.leaflet-right{
+    height: 10px;
+    width: 10px;
+}
+
+/*TODO                   Comienzo cancela tu cuber */
+
+.btngr{
+    border: 3px solid white;
+    border-radius: 321px;
+    color: white;
+    background-color: transparent;
+    font-size: 30px;
+    height: 60px;
+    width: 63px;
+    position: relative;
+    left: 1296px;
+}
+.btngr1{
+    border: 3px solid white;
+    border-radius: 321px;
+    color: white;
+    background-color: transparent;
+    font-size: 30px;
+    height: 60px;
+    width: 63px;
+    position: relative;
+    left: 1296px;
+    bottom: 710px;
+}
+
+.logo{
+    position: absolute;
+    width: 204px;
+    height: 130px;
+    left: -94px;
+    top: -232px;
+
+}
+.logoRg{
+    
+
+}
+
+.uCuberC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 166px;
+    gap: 40px;
+    
+    position: absolute;
+    width: 534px;
+    height: 585px;
+    left: 108px;
+    top: 324px;
+
+}
+.cabeceraC {
+    position: absolute;
+    width: 204px;
+    height: 130px;
+    left: 174px;
+    top: -38px;
+
+}
+
+
+.nombreC {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 0px 25px 0px;
+    gap: 16px;
+    width: 534px;
+    height: 33px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-top: 61px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.telC {
+    margin-left: 79px;
+}
+
+
+.botonC {
+    width: 202px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #ff0000;
+    opacity: 0.55;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: 64px;
+    left: 277px;
+}
+
+.botonF {
+    width: 202px;
+    height: 64px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background: #0400ff;
+    opacity: 0.55;
+    border-radius: 32px;
+    border: none;
+    position: relative;
+    top: -16px;
+    left: 1px;
+}
+/*TODO                   Final cancela tu cuber */

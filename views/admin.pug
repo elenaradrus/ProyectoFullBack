@@ -1,0 +1,54 @@
+head
+  link(rel='stylesheet',  href="/style.css")
+  link(rel='stylesheet',  href="/style1.css")
+  title Admin 
+body
+  nav.nav
+    section.textNa
+      div.login
+        div.barra1
+          form(action="/logOut1", method="post") 
+           input#logout.log2(type='submit' value='Log out')   
+  section#maxBoxPedir3.maxBoxPedir3
+      img.logoPedir(src='logo.png' alt='')
+      .mediumBoxPedir
+        .mediumBoxPedirText
+          h1.selectTouText
+            | Panel de Administracion
+          p#livingTouText2.livingTouText
+            | Bienvenido
+        #minBoxPedir2.minBoxPedir
+          #puntosBoxText2.puntosBoxText
+            #contHisto.contHisto
+              #contHistoText1.contHistoText1
+                 form.licencia(action='/anadirCoche' method='post')
+                  input.btn(type='text' placeholder='Añadir Nombre' name='anadirNombre')
+                  input.btn(type='text' placeholder='Añadir Matricula' name='anadirMatricula')
+                  input.btn(type='text' placeholder='Añadir Telefono' name='anadirTelefono')
+                  button.btn1(type='submit' id='añadir' name='Añadir Coche') Añadir licencia
+            #contHisto.contHisto
+              #contHistoText2.contHistoText2   
+                 form(action='/borrarCoche' method='post')
+                  input.btn(type='text' placeholder='Añadir Matricula' name='borrarCoche')
+                  button.btn1(type='submit' id='añadir' name='borrarCoche') Borrar licencia
+                 
+            #contHisto.contHisto
+              #contHistoText3.contHistoText3  
+                 form.mediumForm(action='/actualizar' method='post')    
+                  .contenedorInput 
+                    .contenedorInput1
+                      input.btn(type='text' placeholder='Nombre del conductor' name='nombreExistente')
+                      input.btn(type='text' placeholder='Nuevo nombre del conductor' name='nombreNuevo')
+                    .contenedorInput2
+                      input.btn(type='text' placeholder='telefono del conductor' name='telefonoExistente')
+                      input.btn(type='text' placeholder='Nuevo telefono del conductor' name='telefonoNuevo')
+                    .contenedorInput3
+                      input.btn(type='text' placeholder=' matricula del conductor' name='matriculaExistente')
+                      input.btn(type='text' placeholder='Nueva matricula del conductor' name='matriculaNueva')
+                      button.btn2(type='submit' id='añadir' name='actualizar') Actualizar licencia 
+            #contHisto.contHisto
+              #contHistoText4.contHistoText4            
+                 form.lastForm(action='/borrarUsuario' method='post')
+                    input.btn(type='text' placeholder='Borrar Usuario' name='borrarUser')
+                    button.btn1(type='submit' id='añadir' name='borrarUser') borrar usuario
+

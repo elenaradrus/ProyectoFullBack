@@ -1,0 +1,58 @@
+ 
+head
+  link(rel='stylesheet',  href="/style.css")
+  link(rel='stylesheet',  href="/style1.css")
+  title Factura  
+body  
+  nav.nav
+    section.textNa
+     form(action="/logHome", method="post")  
+      input.home(type='submit' value='Home')
+     form(action="/uCuber1", method="post") 
+      input.uCuber(type='submit' value='U CUBER')
+     div.login
+        p.busqueda Nº de trayecto 
+        div.barra
+           input.search(type='text' placeholder='🔍 search')
+           input#logout.log(type='submit' value='Log out')
+  section#maxBoxPedir.maxBoxPedir
+      img#logoPedir1.logoPedir1(src='logo.png' alt='')
+      #mediumBoxPedir.mediumBoxPedir
+        #mediumBoxPedirText.mediumBoxPedirText
+          h1#selectTouText.selectTouText
+            | Select your route
+          p#livingTouText.livingTouText
+            | and start living
+        #minBoxPedir.minBoxPedir
+          #puntosBoxText.puntosBoxText
+            h2#puntosCabe.puntosCabe
+              | Marca en el mapa tu recogida
+            h2#calleMap.calleMap
+            #mapaRutaIn.mapaRutaIn
+              #map(style='width:100%; height:50vh; postion: relative; top: 56px')
+            //- #map(style='width:100%; height: 100vh')  
+            #pagoCuber.pagoCuber
+              h2#tiempoFinal.tiempoFinal
+                | Puedes tener un coche en menos de 30 min.
+                br
+                |                             tan solo: 20€ 
+                br
+                |                             Solo pagos con Tarjeta.
+        form(action="/verCoche", method="post")         
+          #botonpagar.botonpagar
+            input#botonpagarB.botonpagarB(type='submit' value='Pedir Cuber')
+
+
+
+
+
+
+
+
+
+  script(src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js')
+  script(src='https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js')
+  script(src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js')
+  script(type='module' src='frontLog.js')
+     
