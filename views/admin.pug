@@ -37,18 +37,18 @@ body
                  form.mediumForm(action='/actualizar' method='post')    
                   .contenedorInput 
                     .contenedorInput1
-                       input.btn(type='text' placeholder='Nombre del conductor' name='nombreExistente')
+                      input.btn(type='text' placeholder='Nombre del conductor' name='nombreExistente')
                       input.btn(type='text' placeholder='Nuevo nombre del conductor' name='nombreNuevo')
                     .contenedorInput2
                       input.btn(type='text' placeholder='telefono del conductor' name='telefonoExistente')
                       input.btn(type='text' placeholder='Nuevo telefono del conductor' name='telefonoNuevo')
-                    .contenedorInput2
+                    .contenedorInput3
                       input.btn(type='text' placeholder=' matricula del conductor' name='matriculaExistente')
                       input.btn(type='text' placeholder='Nueva matricula del conductor' name='matriculaNueva')
                       button.btn2(type='submit' id='añadir' name='actualizar') Actualizar licencia 
             #contHisto.contHisto
               #contHistoText4.contHistoText4            
                  form.lastForm(action='/borrarUsuario' method='post')
-                    input.btn(type='text' placeholder='Borrar User' name='borrarUser')
+                    input.btn(type='text' placeholder='Borrar Usuario' name='borrarUser')
                     button.btn1(type='submit' id='añadir' name='borrarUser') borrar usuario
 
