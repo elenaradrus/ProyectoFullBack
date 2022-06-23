@@ -66,6 +66,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
     console.log(uuid.v4());
     let traking = uuid.v4();
     console.log(typeof(traking));
+    localStorage.setItem('tracking', traking);
     document.getElementById('outTra').innerHTML = traking;
 
     // Obtener DNI
@@ -95,6 +96,18 @@ navigator.geolocation.getCurrentPosition(function (position) {
   },
   body: JSON.stringify(infoHistorial),
 })
+
+document.getElementById('botonC').addEventListener('click', function () {
+  fetch('http://localhost:3000/borrar', {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify({traking}),
+})
+});
+
+  
 
 
 

@@ -489,9 +489,33 @@ const data = Math.round(Math.random() * 10);
     logOut: (req, res) => {
       res.render('index');
     },
-    logOut1: (req, res) => {
-      res.render('index');
-    }
+    
+
+    borrar1: (req, res) => {
+     console.log(req.body.traking)
+       
+    },
+
+    borrar: (req, res) => {
+      res.render('indexLog')
+       //Borrar coleccion
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      const mydb = "Cuber";
+      const collection = "Historial_Usuario";
+      var dbo = db.db(mydb);
+      var myquery = { 'numeroDeTrayecto': req.body.traking };
+      dbo
+      .collection(collection)
+      .deleteOne(myquery, function(err, obj) {
+        if (err) throw err;
+        console.log("Documento borrado");
+          db.close();
+      });
+    });
+     
+    },
+
 }
 
 
