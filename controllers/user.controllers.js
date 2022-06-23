@@ -67,26 +67,26 @@ const user = {
     ) {
       console.log("campos incorrectos"); //renderizar una pagina de campos incorrectos
     } else {
-      const mydb = "Cuber";
-      const collection = "Historial_Usuario";
-      const myobj = {
-        Fecha: "No hay trayecto",
-        Recogida: "No hay trayecto",
-        numeroDeTrayecto: "No hay trayecto",
-        Hora: "No hay trayecto",
-        Precio: "No hay trayecto",
-        Dni: req.body.dni,
-      };
-      MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        var dbo = db.db(mydb);
+      // const mydb = "Cuber";
+      // const collection = "Historial_Usuario";
+      // const myobj = {
+      //   Fecha: "No hay trayecto",
+      //   Recogida: "No hay trayecto",
+      //   numeroDeTrayecto: "No hay trayecto",
+      //   Hora: "No hay trayecto",
+      //   Precio: "No hay trayecto",
+      //   Dni: req.body.dni,
+      // };
+      // MongoClient.connect(url, function (err, db) {
+      //   if (err) throw err;
+      //   var dbo = db.db(mydb);
 
-        dbo.collection(collection).insertOne(myobj, function (err, res) {
-          if (err) throw err;
-          console.log("Documento insertado");
-          db.close();
-        });
-      });
+      //   dbo.collection(collection).insertOne(myobj, function (err, res) {
+      //     if (err) throw err;
+      //     console.log("Documento insertado");
+      //     db.close();
+      //   });
+      // });
 
       bcrypt.hash(contrasena, 10, (err, palabraSecretaEncriptada) => {
         if (err) {
@@ -267,6 +267,18 @@ const user = {
                       hora1,
                       precio1,
                     });
+                    fecha2 = "No hay trayecto";
+                      recogida2 = "No hay trayecto";
+                      numtrayeto2 = "No hay trayecto";
+                      hora2 = "No hay trayecto";
+                      precio2 = "No hay trayecto";
+                      res.render("uCuber", {
+                        fecha2,
+                        recogida2,
+                        numtrayeto2,
+                        hora2,
+                        precio2,
+                      })
                   }
                   res.render("uCuber", {
                     fecha,
@@ -289,6 +301,30 @@ const user = {
                     hora,
                     precio,
                   });
+                  fecha1 = "No hay trayecto";
+                    recogida1 = "No hay trayecto";
+                    numtrayeto1 = "No hay trayecto";
+                    hora1 = "No hay trayecto";
+                    precio1 = "No hay trayecto";
+                    res.render("uCuber", {
+                      fecha1,
+                      recogida1,
+                      numtrayeto1,
+                      hora1,
+                      precio1,
+                    });
+                    fecha2 = "No hay trayecto";
+                      recogida2 = "No hay trayecto";
+                      numtrayeto2 = "No hay trayecto";
+                      hora2 = "No hay trayecto";
+                      precio2 = "No hay trayecto";
+                      res.render("uCuber", {
+                        fecha2,
+                        recogida2,
+                        numtrayeto2,
+                        hora2,
+                        precio2,
+                      });
                 }
                 // db.close();
               });

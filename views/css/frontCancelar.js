@@ -107,6 +107,18 @@ document.getElementById('botonC').addEventListener('click', function () {
 })
 });
 
+let dniU = localStorage.getItem('Dni');
+console.log(dniU)
+document.getElementById('uCuber').addEventListener('click', function () {
+  fetch('http://localhost:3000/uCuber1', {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify({dniU}),
+})
+});
+
   
 
 

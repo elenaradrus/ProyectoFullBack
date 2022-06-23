@@ -80,7 +80,17 @@ document.getElementById('botonpagarB').addEventListener('click', () => {
   btnGr(maxBoxPedir)
 })
 document.getElementById('search2').addEventListener('click', () => {
-  mostrar2(maxBoxPedir2)
+  if (document.getElementById('search').value == '') {
+    alert('No has introducido nada');
+  }else{
+    mostrar2(maxBoxPedir2)
+    btnGr(maxBoxPedir)
+  }
+ 
+
+})
+document.getElementById('btnGr1').addEventListener('click', () => {
+  btnGr2(maxBoxPedir2)
 
 })
 
@@ -107,6 +117,14 @@ function mostrar(id) {
 }
 function btnGr(id) {
   let test = document.getElementById('maxBoxPedir');
+  if (test.style.display == 'inline') {
+    test.style.display = 'block';
+  } else {
+    test.style.display = 'none'
+  }
+}
+function btnGr2(id) {
+  let test = document.getElementById('maxBoxPedir2');
   if (test.style.display == 'inline') {
     test.style.display = 'block';
   } else {

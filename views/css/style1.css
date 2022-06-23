@@ -15,7 +15,7 @@ body {
 .nav {
     box-sizing: border-box;
     position: absolute;
-    width: 1599px;
+    width: 100%;
     height: 73px;
     left: 0px;
     top: 0px;
@@ -62,8 +62,15 @@ body {
 .busqueda {
     color: #C3C3C3;
     position: relative;
-    bottom: 61px;
-    left: 405px;
+    bottom: 48px;
+    left: 1144px;
+}
+
+.busquedaL {
+    color: #C3C3C3;
+    position: relative;
+    bottom: -3px;
+    
 }
 .busqueda1 {
     color: #C3C3C3;
@@ -84,12 +91,12 @@ body {
     left: 1273px;
 }
 
-.login {
+/* .login {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .barra {
     display: flex;
@@ -101,7 +108,7 @@ body {
     position: absolute;
     width: 167px;
     height: 40px;
-    right: 83px;
+    right: 127px;
     top: calc(50% - 40px/2 + 0.5px);
 }
 .barra1 {
@@ -231,12 +238,18 @@ body {
 
 /*TODO                    comienzo U CUBER */
 .boxUtotal {
-    
-
     position: absolute;
-    width: 1607px;
-    left: 0px;
+    /* width: 1954px; */
+    /* left: 0px; */
     top: 73px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+.mapaUcuber {
+    position: absolute;
+    width: 100%;
+    left: 720px;
+    top: 0px;
     bottom: 0px;
     background: #FFFFFF;
 }
@@ -244,11 +257,10 @@ body {
 .uBox {
     box-sizing: border-box;
     position: absolute;
-    width: 721px;
+    width: 730px;
     height: 1040px;
-    left: 0px;
+    left: -9px;
     top: -21px;
-
     background: #FFFFFF;
     border: 1px solid rgba(102, 102, 102, 0.5);
     
@@ -610,10 +622,10 @@ body {
 #map1{
     position: relative;
     /* top: 0px; */
-    left: 721px;
-    /* height: 1018px; */
-    width: 879px;
-    height: 1019px;
+    /* left: 721px; */
+    height: 1018px;
+    width: 867px;
+    /* height: 1019px; */
     z-index: 1;
     
 }
@@ -642,6 +654,20 @@ body {
     left: 1060px;
     top: 125px;
     width: 165px;
+}
+.logoPedir1{
+    z-index: 2;
+    position: relative;
+    left: 1048px;
+    bottom: 603px;
+    width: 168px;
+}
+.logoPedir2{
+    z-index: 2;
+    position: relative;
+    left: 1048px;
+    bottom: 603px;
+    width: 168px;
 }
 
 .mediumBoxPedirText{
@@ -811,12 +837,40 @@ border: none;
 
 /*TODO                   Comienzo cancela tu cuber */
 
+.btngr{
+    border: 3px solid white;
+    border-radius: 321px;
+    color: white;
+    background-color: transparent;
+    font-size: 30px;
+    height: 60px;
+    width: 63px;
+    position: relative;
+    left: 1296px;
+}
+.btngr1{
+    border: 3px solid white;
+    border-radius: 321px;
+    color: white;
+    background-color: transparent;
+    font-size: 30px;
+    height: 60px;
+    width: 63px;
+    position: relative;
+    left: 1296px;
+    bottom: 710px;
+}
+
 .logo{
     position: absolute;
     width: 204px;
     height: 130px;
     left: -94px;
     top: -232px;
+
+}
+.logoRg{
+    
 
 }
 
